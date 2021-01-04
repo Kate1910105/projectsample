@@ -25,7 +25,7 @@ public class Database {
 
     public void connect() throws SQLException {
         String databasePath = "db";
-        connection = DriverManager.getConnection(String.format("jdbc:derby:%s;create=true", databasePath));
+        connection = DriverManager.getConnection(String.format("jdbc:derby:%s;create=true;derby.language.sequence.preallocator=1", databasePath));
     }
 
     public void close() throws SQLException {
