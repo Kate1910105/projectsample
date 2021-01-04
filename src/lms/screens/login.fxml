@@ -4,17 +4,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.controllers.Login">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.controllers.Login">
     <center>
         <VBox alignment="CENTER" maxWidth="300" spacing="12">
             <Label text="Welcome!">
                 <font>
-                    <Font size="24.0" />
+                    <Font size="24.0"/>
                 </font>
             </Label>
-            <TextField promptText="Your username" />
-            <PasswordField promptText="Your password" />
-            <Button>Login</Button>
+
+            <VBox prefWidth="Infinity" spacing="4">
+                <Label text="Username:"/>
+                <TextField fx:id="username" promptText="Your username"/>
+            </VBox>
+
+            <VBox prefWidth="Infinity" spacing="4">
+                <Label text="Password:"/>
+                <PasswordField fx:id="password" promptText="Your password"/>
+            </VBox>
+
+            <Button onAction="#login">Login</Button>
         </VBox>
     </center>
 </BorderPane>

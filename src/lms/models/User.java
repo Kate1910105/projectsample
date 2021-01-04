@@ -1,12 +1,14 @@
 package lms.models;
 
+import lms.exceptions.authorization.AuthorizationError;
+import lms.exceptions.authorization.InactiveUser;
+import lms.exceptions.authorization.InvalidCredentials;
+import lms.exceptions.authorization.UserNotFound;
 import lms.types.Role;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class User extends Model {
 
@@ -40,14 +42,14 @@ public class User extends Model {
     public static void createTable() throws SQLException {
         String tableSQL = """
                 CREATE TABLE APP.USERS(
-                \tid INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),                
-                \tpassword VARCHAR(511) NOT NULL,
-                \tusername VARCHAR(255) NOT NULL UNIQUE,
-                \tfull_name VARCHAR(255) NOT NULL,
-                \trole INTEGER NOT NULL,
-                \tcan_borrow INTEGER NOT NULL,
-                \tis_active BOOLEAN NOT NULL,
-                \tcreated_at TIMESTAMP NOT NULL
+                \tID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),                
+                \tUSERNAME VARCHAR(255) NOT NULL UNIQUE,
+                \tPASSWORD VARCHAR(511) NOT NULL,
+                \tFULL_NAME VARCHAR(255) NOT NULL,
+                \tROLE INTEGER NOT NULL,
+                \tCAN_BORROW INTEGER NOT NULL,
+                \tIS_ACTIVE BOOLEAN NOT NULL,
+                \tCREATED_AT TIMESTAMP NOT NULL
                 )""";
 
         createTableRaw(tableSQL);
@@ -57,9 +59,9 @@ public class User extends Model {
     public void create() throws SQLException {
         Connection connection = db.getConnection();
         PreparedStatement statement = connection.prepareStatement("""
-        insert into APP.USERS(username,password,full_name,role,can_borrow,is_active,created_at)
-        values (?,?,?,?,?,?,?)
-        """);
+                INSERT INTO APP.USERS(USERNAME,PASSWORD,FULL_NAME,ROLE,CAN_BORROW,IS_ACTIVE,CREATED_AT)
+                VALUES (?,?,?,?,?,?,?)
+                """);
         statement.setString(1, username);
         statement.setString(2, password);
         statement.setString(3, fullName);
@@ -79,5 +81,54 @@ public class User extends Model {
 
         statement.close();
         connection.close();
+    }
+
+    public static User login(String username, String password) throws AuthorizationError {
+        try {
+            Connection connection = db.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement(String.format("""
+                SELECT * FROM APP.USERS WHERE USERNAME = '%s'
+            """, username));
+
+            statement.execute();
+
+            ResultSet result = statement.getResultSet();
+            ArrayList<User> users = new ArrayList<>();
+
+            while (result.next()) {
+                User user = new User();
+                user.id = result.getInt("id");
+                user.username = result.getString("username");
+                user.password = result.getString("password");
+                user.fullName = result.getString("full_name");
+                user.role = rawToRole(result.getInt("role"));
+                user.canBorrow = result.getBoolean("can_borrow");
+                user.isActive = result.getBoolean("is_active");
+                user.createdAt = result.getTimestamp("created_at").toLocalDateTime();
+                users.add(user);
+            }
+
+            statement.close();
+            connection.close();
+
+            if (users.size() == 0) {
+                throw new UserNotFound(String.format("User with login %s is not found", username));
+            }
+
+            User user = users.get(0);
+
+            if (!user.password.equals(password)) {
+                throw new InvalidCredentials(String.format("Password of given user %s is wrong", username));
+            }
+
+            if (!user.isActive) {
+                throw new InactiveUser(String.format("User %s is not active", username));
+            }
+
+            return user;
+        } catch (SQLException error) {
+            throw new AuthorizationError("Unknown");
+        }
     }
 }

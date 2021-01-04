@@ -16,8 +16,8 @@ public class Main extends Application {
     Scene loginScene;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        window = primaryStage;
+    public void start(Stage stage) throws Exception {
+        window = stage;
 
         // Initialize all scenes
         loginScene = new Scene(loadScene("login"), 800, 600);
@@ -34,15 +34,16 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-//        Database.getInstance().connect();
-//        User.createTable();
-//        User user = new User();
-//        user.username = "admin4";
-//        user.password = "password";
-//        user.fullName = "John Adams";
-//        user.role = Role.Administrator;
-//        user.createdAt = LocalDateTime.now();
-//        user.create();
+        Database.getInstance().connect();
+        User.createTable();
+        User user = new User();
+        user.username = "irda";
+        user.password = "password";
+        user.fullName = "Irda";
+        user.role = Role.Administrator;
+        user.createdAt = LocalDateTime.now();
+        user.isActive = false;
+        user.create();
 
 //        System.out.println("Connected");
         launch(args);
