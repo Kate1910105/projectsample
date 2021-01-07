@@ -6,38 +6,69 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminPanel.Controller">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-color: #d2f7f2;" fx:controller="AdminPanel.Controller">
+
     <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="291.0" style="-fx-alignment: top;" text="Admin Panel" textAlignment="CENTER" VBox.vgrow="ALWAYS">
 
-
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="153.0" text="Choose operation " textAlignment="CENTER" />
-        <Button fx:id="Student" alignment="TOP_CENTER" lineSpacing="5.0" mnemonicParsing="false" onAction="#showStudent" prefHeight="39.0" prefWidth="204.0" text="Student" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="249.0"
+               text="Admin Panel" textAlignment="CENTER">
+            <VBox.margin>
+                <Insets bottom="50"/>
+            </VBox.margin>
             <font>
-                <Font name="Roboto Light" size="24.0" />
+                <Font size="24.0"/>
+            </font>
+        </Label>
+
+
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="155.0"
+               text="Choose operation "
+               textAlignment="CENTER">
+            <VBox.margin>
+                <Insets bottom="12.0"/>
+            </VBox.margin>
+        </Label>
+
+        <Button fx:id="Student" alignment="TOP_CENTER" lineSpacing="5.0" mnemonicParsing="false"
+                onAction="#showStudent"
+                prefHeight="39.0" prefWidth="204.0" text="Student" textAlignment="CENTER"
+                textOverrun="CENTER_ELLIPSIS">
+            <font>
+                <Font name="Roboto Light" size="24.0"/>
             </font>
             <VBox.margin>
-                <Insets bottom="5.0" />
+                <Insets bottom="10.0"/>
             </VBox.margin>
         </Button>
-        <Button fx:id="Book" alignment="CENTER" mnemonicParsing="false" onAction="#showBook" prefHeight="26.0" prefWidth="204.0" text="Book" textAlignment="CENTER">
+
+        <Button fx:id="Book" alignment="CENTER" mnemonicParsing="false" onAction="#showBook" prefHeight="26.0"
+                prefWidth="204.0" text="Book" textAlignment="CENTER">
             <font>
-                <Font name="Roboto Light" size="24.0" />
+                <Font name="Roboto Light" size="24.0"/>
             </font>
             <VBox.margin>
-                <Insets bottom="5.0" />
-            </VBox.margin></Button>
-        <Button fx:id="Librarian" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showLibrarian" prefHeight="52.0" prefWidth="203.0" text="Librarian" textAlignment="CENTER" wrapText="true">
+                <Insets bottom="10.0"/>
+            </VBox.margin>
+        </Button>
+
+        <Button fx:id="Librarian" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                onAction="#showLibrarian" prefHeight="52.0" prefWidth="203.0" text="Librarian"
+                textAlignment="CENTER"
+                wrapText="true">
             <font>
-                <Font name="Roboto Light" size="24.0" />
+                <Font name="Roboto Light" size="24.0"/>
             </font>
+            <VBox.margin>
+                <Insets bottom="10.0"/>
+            </VBox.margin>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </Button>
     </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
+    <opaqueInsets>
+        <Insets/>
+    </opaqueInsets>
 </VBox>

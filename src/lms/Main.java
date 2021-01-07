@@ -5,11 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lms.models.Book;
+import lms.models.Loan;
 import lms.types.Role;
 import lms.models.User;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Main extends Application {
     Stage window;
@@ -36,16 +39,13 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
         Database.getInstance().connect();
         User.createTable();
-        User user = new User();
-        user.username = "kotek";
-        user.password = "password";
-        user.fullName = "Irda";
-        user.role = Role.Administrator;
-        user.createdAt = LocalDateTime.now();
-        user.isActive = true;
-        user.create();
+        Book.createTable();
+        Loan.createTable();
 
-//        System.out.println("Connected");
+        ArrayList<User> users = User.all();
+        System.out.println(users);
+
+//      System.out.println("Connected");
         launch(args);
     }
 }

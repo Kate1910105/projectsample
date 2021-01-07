@@ -4,6 +4,8 @@ import lms.exceptions.authorization.AuthorizationError;
 import lms.exceptions.authorization.InactiveUser;
 import lms.exceptions.authorization.InvalidCredentials;
 import lms.exceptions.authorization.UserNotFound;
+import lms.exceptions.model.ModelError;
+import lms.exceptions.model.RecordNotFound;
 import lms.types.Role;
 
 import java.sql.*;
@@ -70,6 +72,110 @@ public class User extends Model {
             if (e.getSQLState().equals("23505")) {
                 System.out.printf("user %s is already exists\n", username);
             }
+        }
+
+        statement.close();
+        connection.close();
+    }
+
+    public static User fetch(int id) throws ModelError, SQLException {
+        Connection connection = db.getConnection();
+
+        String query = "SELECT * FROM APP.USERS WHERE ID=?";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+        ArrayList<User> users = new ArrayList<>();
+
+        while (result.next()) {
+            User user = serializeUserFromResult(result);
+            users.add(user);
+        }
+
+        statement.close();
+        connection.close();
+
+        if (users.size() == 0) {
+            throw new RecordNotFound(String.format("User with id %d is not found", id));
+        } else {
+            return users.get(0);
+        }
+    }
+
+    public static ArrayList<User> all() throws SQLException {
+        Connection connection = db.getConnection();
+
+        String query = "SELECT * FROM APP.USERS";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+        ArrayList<User> users = new ArrayList<>();
+
+        while (result.next()) {
+            User user = serializeUserFromResult(result);
+            users.add(user);
+        }
+
+        statement.close();
+        connection.close();
+
+        return users;
+    }
+
+    public void update() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "UPDATE APP.USERS\n" +
+                "SET PASSWORD=?,\n" +
+                "FULL_NAME=?,\n" +
+                "\"ROLE\"=?,\n" +
+                "CAN_BORROW=?,\n" +
+                "IS_ACTIVE=?,\n" +
+                "CREATED_AT=?\n" +
+                "WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, password);
+        statement.setString(2, fullName);
+        statement.setInt(3, roleToRaw(role));
+        statement.setBoolean(4, canBorrow);
+        statement.setBoolean(5, isActive);
+        statement.setTimestamp(6, Timestamp.valueOf(createdAt));
+        statement.setInt(7, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("user %s is updated\n", username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
+    }
+
+    public void delete() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "DELETE FROM APP.USERS WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("user %s is updated\n", username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
         }
 
         statement.close();
