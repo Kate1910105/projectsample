@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lms.models.Book;
+import lms.models.Loan;
 import lms.types.Role;
 import lms.models.User;
 
@@ -45,7 +47,10 @@ public class Main extends Application {
         user.isActive = true;
         user.create();
 
-//        System.out.println("Connected");
+        Book.createTable();
+        Loan.createTable();
+
+//      System.out.println("Connected");
         launch(args);
     }
 }
