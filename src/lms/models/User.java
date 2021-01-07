@@ -109,6 +109,26 @@ public class User extends Model {
         connection.close();
     }
 
+    public void delete() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "DELETE FROM APP.USERS WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("user %s is updated\n", username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
+    }
+
     public static User serializeUserFromResult(ResultSet result) {
         User user = new User();
         try {
