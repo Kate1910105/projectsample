@@ -26,9 +26,13 @@
                 <PasswordField fx:id="password" promptText="Your password"/>
             </VBox>
 
-            <Button prefWidth="65" prefHeight="25" onAction="#login">
+            <Button prefWidth="75" prefHeight="30" onAction="#login"
+                    style="-fx-border-radius: 5px, 3px, 2px, 1px; -fx-background-color: white; -fx-border-color: #16c9de; -fx-background-radius: 5px, 3px, 2px, 1px;">
+                <font>
+                    <Font size="15.0"/>
+                </font>
                 <VBox.margin>
-                    <Insets top="10"/>
+                    <Insets top="8"/>
                 </VBox.margin>
                 Login
             </Button>

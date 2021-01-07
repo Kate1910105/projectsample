@@ -8,7 +8,7 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      style="-fx-background-color: #d2f7f2;" fx:controller="AdminPanel.Controller">
+      style="-fx-background-color: #d2f7f2;" fx:controller="lms.controllers.AdminPanel">
 
     <children>
 
@@ -34,9 +34,9 @@
         <Button fx:id="Student" alignment="TOP_CENTER" lineSpacing="5.0" mnemonicParsing="false"
                 onAction="#showStudent"
                 prefHeight="39.0" prefWidth="204.0" text="Student" textAlignment="CENTER"
-                textOverrun="CENTER_ELLIPSIS">
+                textOverrun="CENTER_ELLIPSIS" >
             <font>
-                <Font name="Roboto Light" size="24.0"/>
+                <Font name="Fantasy" size="24.0"/>
             </font>
             <VBox.margin>
                 <Insets bottom="10.0"/>
@@ -46,7 +46,7 @@
         <Button fx:id="Book" alignment="CENTER" mnemonicParsing="false" onAction="#showBook" prefHeight="26.0"
                 prefWidth="204.0" text="Book" textAlignment="CENTER">
             <font>
-                <Font name="Roboto Light" size="24.0"/>
+                <Font name="Fantasy" size="24.0"/>
             </font>
             <VBox.margin>
                 <Insets bottom="10.0"/>
@@ -58,7 +58,7 @@
                 textAlignment="CENTER"
                 wrapText="true">
             <font>
-                <Font name="Roboto Light" size="24.0"/>
+                <Font name="Fantasy" size="24.0"/>
             </font>
             <VBox.margin>
                 <Insets bottom="10.0"/>

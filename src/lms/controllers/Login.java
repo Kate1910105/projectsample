@@ -36,6 +36,7 @@ public class Login {
             alert.setHeaderText(null);
             alert.setContentText(String.format("Welcome, %s!", user.fullName));
             alert.showAndWait();
+
         } catch (AuthorizationError error) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Authorization error");
