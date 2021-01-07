@@ -24,7 +24,6 @@ public class Loan extends Model {
     public void create() throws SQLException {
         Connection connection = db.getConnection();
         PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.LOANS(ID,USER_ID,BOOK_ID,BORROWED_DATE,DEADLINE_AT,RETURNED_DATE) VALUES (?,?,?,?,?,?)");
-        statement.setInt(1, id);
         statement.setInt(2, userID);
         statement.setInt(3, bookID);
         statement.setTimestamp(7, Timestamp.valueOf(borrowedDate));
@@ -39,5 +38,56 @@ public class Loan extends Model {
                 System.out.printf("loan %d is already exists\n", id);
             }
         }
+    }
+
+    public void update() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "UPDATE APP.LOANS\n" +
+                "SET USER_ID=?,\n" +
+                "BOOK_ID=?,\n" +
+                "BORROWED_DATE=?,\n" +
+                "DEADLINE_AT=?,\n" +
+                "RETURNED_AT=?,\n" +
+                "WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, userID);
+        statement.setInt(2, bookID);
+        statement.setTimestamp(7, Timestamp.valueOf(borrowedDate));
+        statement.setTimestamp(7, Timestamp.valueOf(deadlineAt));
+        statement.setTimestamp(7, Timestamp.valueOf(returnedAt));
+        statement.setInt(7, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("loan %d is updated\n", id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
+    }
+
+    public void delete() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "DELETE FROM APP.LOANS WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("loan %d is updated\n", id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
     }
 }

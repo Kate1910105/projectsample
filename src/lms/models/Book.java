@@ -25,7 +25,6 @@ public class Book extends Model {
     public void create() throws SQLException {
         Connection connection = db.getConnection();
         PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.USERS(ID,ISBN,TITLE,SUBJECT,AUTHOR,PUBLISH_DATE,CREATED_AT) VALUES (?,?,?,?,?,?,?)");
-        statement.setInt(1, id);
         statement.setString(2, ISBN);
         statement.setString(3, title);
         statement.setString(4, subject);
@@ -41,5 +40,58 @@ public class Book extends Model {
                 System.out.printf("book %s is already exists\n", title);
             }
         }
+    }
+
+    public void update() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "UPDATE APP.BOOKS\n" +
+                "SET ISBN=?,\n" +
+                "TITLE=?,\n" +
+                "SUBJECT=?,\n" +
+                "AUTHOR=?,\n" +
+                "PUBLISH_DATE=?,\n" +
+                "CREATED_AT=?\n" +
+                "WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, ISBN);
+        statement.setString(2, title);
+        statement.setString(3, subject);
+        statement.setString(4, author);
+        statement.setTimestamp(7, Timestamp.valueOf(publishDate));
+        statement.setTimestamp(7, Timestamp.valueOf(createdAt));
+        statement.setInt(7, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("book %s is updated\n", title);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
+    }
+
+    public void delete() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "DELETE FROM APP.BOOKS WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("books %s is updated\n", title);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
     }
 }
