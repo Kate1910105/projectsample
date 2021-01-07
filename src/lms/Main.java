@@ -37,12 +37,12 @@ public class Main extends Application {
         Database.getInstance().connect();
         User.createTable();
         User user = new User();
-        user.username = "irda";
+        user.username = "kotek";
         user.password = "password";
         user.fullName = "Irda";
         user.role = Role.Administrator;
         user.createdAt = LocalDateTime.now();
-        user.isActive = false;
+        user.isActive = true;
         user.create();
 
 //        System.out.println("Connected");

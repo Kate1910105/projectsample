@@ -23,34 +23,30 @@ public class User extends Model {
 
     // Convert Role enum to raw format
     public static int roleToRaw(Role role) {
-        return switch (role) {
-            case Administrator -> 1;
-            case Librarian -> 2;
-            default -> 3;
-        };
+        switch (role) {
+            case Administrator:
+                return 1;
+            case Librarian:
+                return 2;
+            default:
+                return 3;
+        }
     }
 
     // Convert raw to Role enum
     public static Role rawToRole(int role) {
-        return switch (role) {
-            case 1 -> Role.Administrator;
-            case 2 -> Role.Librarian;
-            default -> Role.Student;
-        };
+        switch (role) {
+            case 1:
+                return Role.Administrator;
+            case 2:
+                return Role.Librarian;
+            default:
+                return Role.Student;
+        }
     }
 
     public static void createTable() throws SQLException {
-        String tableSQL = """
-                CREATE TABLE APP.USERS(
-                \tID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),                
-                \tUSERNAME VARCHAR(255) NOT NULL UNIQUE,
-                \tPASSWORD VARCHAR(511) NOT NULL,
-                \tFULL_NAME VARCHAR(255) NOT NULL,
-                \tROLE INTEGER NOT NULL,
-                \tCAN_BORROW INTEGER NOT NULL,
-                \tIS_ACTIVE BOOLEAN NOT NULL,
-                \tCREATED_AT TIMESTAMP NOT NULL
-                )""";
+        String tableSQL = "CREATE TABLE APP.USERS(\tID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),\tUSERNAME VARCHAR(255) NOT NULL UNIQUE,\tPASSWORD VARCHAR(511) NOT NULL,\tFULL_NAME VARCHAR(255) NOT NULL,\tROLE INTEGER NOT NULL,\tCAN_BORROW INTEGER NOT NULL,\tIS_ACTIVE BOOLEAN NOT NULL,\tCREATED_AT TIMESTAMP NOT NULL)";
 
         createTableRaw(tableSQL);
         System.out.println("APP.USERS table is created");
@@ -58,10 +54,7 @@ public class User extends Model {
 
     public void create() throws SQLException {
         Connection connection = db.getConnection();
-        PreparedStatement statement = connection.prepareStatement("""
-                INSERT INTO APP.USERS(USERNAME,PASSWORD,FULL_NAME,ROLE,CAN_BORROW,IS_ACTIVE,CREATED_AT)
-                VALUES (?,?,?,?,?,?,?)
-                """);
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.USERS(USERNAME,PASSWORD,FULL_NAME,ROLE,CAN_BORROW,IS_ACTIVE,CREATED_AT) VALUES (?,?,?,?,?,?,?)");
         statement.setString(1, username);
         statement.setString(2, password);
         statement.setString(3, fullName);
@@ -87,9 +80,9 @@ public class User extends Model {
         try {
             Connection connection = db.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement(String.format("""
-                SELECT * FROM APP.USERS WHERE USERNAME = '%s'
-            """, username));
+            PreparedStatement statement = connection.prepareStatement(
+                    String.format("SELECT * FROM APP.USERS WHERE USERNAME = '%s'", username)
+            );
 
             statement.execute();
 
