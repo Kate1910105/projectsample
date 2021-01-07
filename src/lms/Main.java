@@ -7,23 +7,25 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lms.models.Book;
 import lms.models.Loan;
-import lms.types.Role;
 import lms.models.User;
-
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+import lms.types.Role;
 
 public class Main extends Application {
     Stage window;
     Scene loginScene;
-
+    Scene adminPanel;
+    Scene studentPanel;
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
 
         // Initialize all scenes
         loginScene = new Scene(loadScene("login"), 800, 600);
+        adminPanel = new Scene(loadScene("adminpanel"), 800, 600);
+        studentPanel = new Scene(loadScene("studentpanel"), 800, 600);
 
         window.setTitle("Library Management System");
         window.setScene(loginScene);

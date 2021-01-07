@@ -4,15 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import lms.Main;
 import lms.exceptions.authorization.AuthorizationError;
 import lms.models.User;
 
-import java.util.Optional;
+import java.io.IOException;
+
 
 public class Login {
     @FXML
@@ -26,6 +26,8 @@ public class Login {
         System.out.println("login init");
     }
 
+    public static Scene adminPanel;
+
     public void login(ActionEvent event) {
         System.out.println("Username: " + username.getText());
         System.out.println("Password: " + password.getText());
@@ -36,6 +38,7 @@ public class Login {
             alert.setHeaderText(null);
             alert.setContentText(String.format("Welcome, %s!", user.fullName));
             alert.showAndWait();
+
         } catch (AuthorizationError error) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Authorization error");
