@@ -3,9 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.controllers.Login">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.controllers.Login"
+            style="-fx-background-color: #d2f7f2;">
+
     <center>
         <VBox alignment="CENTER" maxWidth="300" spacing="12">
             <Label text="Welcome!">
@@ -24,7 +26,12 @@
                 <PasswordField fx:id="password" promptText="Your password"/>
             </VBox>
 
-            <Button onAction="#login">Login</Button>
+            <Button prefWidth="65" prefHeight="25" onAction="#login">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+                Login
+            </Button>
         </VBox>
     </center>
 </BorderPane>
