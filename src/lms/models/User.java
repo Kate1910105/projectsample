@@ -4,6 +4,8 @@ import lms.exceptions.authorization.AuthorizationError;
 import lms.exceptions.authorization.InactiveUser;
 import lms.exceptions.authorization.InvalidCredentials;
 import lms.exceptions.authorization.UserNotFound;
+import lms.exceptions.model.ModelError;
+import lms.exceptions.model.RecordNotFound;
 import lms.types.Role;
 
 import java.sql.*;
@@ -74,6 +76,57 @@ public class User extends Model {
 
         statement.close();
         connection.close();
+    }
+
+    public static User fetch(int id) throws ModelError, SQLException {
+        Connection connection = db.getConnection();
+
+        String query = "SELECT * FROM APP.USERS WHERE ID=?";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+        ArrayList<User> users = new ArrayList<>();
+
+        while (result.next()) {
+            User user = serializeUserFromResult(result);
+            users.add(user);
+        }
+
+        statement.close();
+        connection.close();
+
+        if (users.size() == 0) {
+            throw new RecordNotFound(String.format("User with id %d is not found", id));
+        } else {
+            return users.get(0);
+        }
+    }
+
+    public static ArrayList<User> all() throws SQLException {
+        Connection connection = db.getConnection();
+
+        String query = "SELECT * FROM APP.USERS";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+        ArrayList<User> users = new ArrayList<>();
+
+        while (result.next()) {
+            User user = serializeUserFromResult(result);
+            users.add(user);
+        }
+
+        statement.close();
+        connection.close();
+
+        return users;
     }
 
     public void update() throws SQLException {
