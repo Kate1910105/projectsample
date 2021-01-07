@@ -36,14 +36,6 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
         Database.getInstance().connect();
         User.createTable();
-        User user = new User();
-        user.username = "kotek";
-        user.password = "password";
-        user.fullName = "Irda";
-        user.role = Role.Administrator;
-        user.createdAt = LocalDateTime.now();
-        user.isActive = true;
-        user.create();
 
 //        System.out.println("Connected");
         launch(args);

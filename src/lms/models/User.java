@@ -76,6 +76,39 @@ public class User extends Model {
         connection.close();
     }
 
+    public void update() throws SQLException {
+        Connection connection = db.getConnection();
+        String query = "UPDATE APP.USERS\n" +
+                "SET PASSWORD=?,\n" +
+                "FULL_NAME=?,\n" +
+                "\"ROLE\"=?,\n" +
+                "CAN_BORROW=?,\n" +
+                "IS_ACTIVE=?,\n" +
+                "CREATED_AT=?\n" +
+                "WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, password);
+        statement.setString(2, fullName);
+        statement.setInt(3, roleToRaw(role));
+        statement.setBoolean(4, canBorrow);
+        statement.setBoolean(5, isActive);
+        statement.setTimestamp(6, Timestamp.valueOf(createdAt));
+        statement.setInt(7, id);
+
+        try {
+            statement.executeUpdate();
+            System.out.printf("user %s is updated\n", username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+//            if (e.getSQLState().equals("23505")) {
+//                System.out.printf("user %s is already exists\n", username);
+//            }
+        }
+
+        statement.close();
+        connection.close();
+    }
+
     public static User serializeUserFromResult(ResultSet result) {
         User user = new User();
         try {
