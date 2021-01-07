@@ -2,12 +2,18 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <ListView prefHeight="398.0" prefWidth="441.0" />
+                <ListView layoutY="49.0" prefHeight="349.0" prefWidth="441.0" />
+            <Label layoutX="146.0" layoutY="20.0" text="LIST OF STUDENTS">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
          <children>
