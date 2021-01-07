@@ -2,11 +2,16 @@ package lms.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import lms.Main;
 import lms.exceptions.authorization.AuthorizationError;
 import lms.models.User;
+
+import java.io.IOException;
 
 
 public class Login {
@@ -20,6 +25,8 @@ public class Login {
     private void initialize() {
         System.out.println("login init");
     }
+
+    public static Scene adminPanel;
 
     public void login(ActionEvent event) {
         System.out.println("Username: " + username.getText());
