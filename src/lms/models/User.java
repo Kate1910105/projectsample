@@ -76,6 +76,23 @@ public class User extends Model {
         connection.close();
     }
 
+    public static User serializeUserFromResult(ResultSet result) {
+        User user = new User();
+        try {
+            user.id = result.getInt("id");
+            user.username = result.getString("username");
+            user.password = result.getString("password");
+            user.fullName = result.getString("full_name");
+            user.role = rawToRole(result.getInt("role"));
+            user.canBorrow = result.getBoolean("can_borrow");
+            user.isActive = result.getBoolean("is_active");
+            user.createdAt = result.getTimestamp("created_at").toLocalDateTime();
+            return user;
+        } catch (SQLException e) {
+            return user;
+        }
+    }
+
     public static User login(String username, String password) throws AuthorizationError {
         try {
             Connection connection = db.getConnection();
@@ -90,15 +107,7 @@ public class User extends Model {
             ArrayList<User> users = new ArrayList<>();
 
             while (result.next()) {
-                User user = new User();
-                user.id = result.getInt("id");
-                user.username = result.getString("username");
-                user.password = result.getString("password");
-                user.fullName = result.getString("full_name");
-                user.role = rawToRole(result.getInt("role"));
-                user.canBorrow = result.getBoolean("can_borrow");
-                user.isActive = result.getBoolean("is_active");
-                user.createdAt = result.getTimestamp("created_at").toLocalDateTime();
+                User user = serializeUserFromResult(result);
                 users.add(user);
             }
 
