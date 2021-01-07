@@ -2,17 +2,12 @@ package lms.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 import lms.exceptions.authorization.AuthorizationError;
 import lms.models.User;
 
-import java.util.Optional;
 
 public class Login {
     @FXML
