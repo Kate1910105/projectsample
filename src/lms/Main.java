@@ -5,37 +5,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lms.windows.LoginWindow;
 import lms.models.Book;
 import lms.models.Loan;
 import lms.models.User;
-import java.io.IOException;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import lms.types.Role;
 
 public class Main extends Application {
-    Stage window;
-    Scene loginScene;
-    Scene adminPanel;
-    Scene studentPanel;
+    public static Stage window;
+
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
-
-        // Initialize all scenes
-        loginScene = new Scene(loadScene("login"), 800, 600);
-        adminPanel = new Scene(loadScene("adminpanel"), 800, 600);
-        studentPanel = new Scene(loadScene("studentpanel"), 800, 600);
-
         window.setTitle("Library Management System");
-        window.setScene(loginScene);
+        window.setScene(LoginWindow.getScene());
         window.show();
-
-        // Loading
     }
 
-    public Parent loadScene(String name) throws IOException {
-        return FXMLLoader.load(getClass().getResource(String.format("screens/%s.fxml", name)));
+    public static Scene loadScene(String name) throws Exception {
+        String path = String.format("src/lms/screens/%s.fxml", name);
+        FileInputStream fileInputStream = new FileInputStream(new File(path));
+        FXMLLoader loader = new FXMLLoader();
+        Parent parent = loader.load(fileInputStream);
+        return new Scene(parent, 800, 600);
     }
 
     public static void main(String[] args) throws Exception {

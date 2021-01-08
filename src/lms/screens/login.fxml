@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.controllers.Login"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.windows.LoginWindow"
             style="-fx-background-color: #d2f7f2;">
 
     <center>
