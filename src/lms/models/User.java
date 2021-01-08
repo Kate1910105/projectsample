@@ -12,6 +12,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+// user class used to represent all roles
 public class User extends Model {
 
     public int id;
@@ -241,4 +242,5 @@ public class User extends Model {
             throw new AuthorizationError("Unknown");
         }
     }
+    //commmmmmments
 }
