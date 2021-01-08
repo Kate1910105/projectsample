@@ -3,6 +3,7 @@ package lms.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import lms.Main;
 
 //scenes for administrators
@@ -36,5 +37,16 @@ public class AdminPanelWindow {
         scene = ListLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
 
+    }
+
+    public void logout(ActionEvent event) throws Exception {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText(null);
+        alert.setContentText(String.format("Goodbye!"));
+        alert.showAndWait();
+        Scene scene;
+        scene = LoginWindow.getScene();
+        Main.window.setScene(scene);
     }
 }
