@@ -16,10 +16,17 @@ public class LibrarianPanelWindow {
         System.out.println("librarian panel init");
     }
 
-    public void showStudent(ActionEvent event) {
-
+    @FXML
+    public void showStudent(ActionEvent event) throws Exception {
+        Scene scene;
+        scene = ListStudentPanelWindow.getScene();
+        Main.window.setScene(scene);
     }
-    public void showBook(ActionEvent event) {
+
+    public void showBook(ActionEvent event) throws Exception {
+        Scene scene;
+        scene = ListBookPanelWindow.getScene();
+        Main.window.setScene(scene);
 
     }
 
