@@ -242,8 +242,4 @@ public class User extends Model {
             throw new AuthorizationError("Unknown");
         }
     }
-    //commmmmmments
-    //commmmetns2
-    //commmments3
-    //comments4
 }
