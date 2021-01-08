@@ -34,7 +34,7 @@
         <Button fx:id="Student" alignment="TOP_CENTER" lineSpacing="5.0" mnemonicParsing="false"
                 onAction="#showStudent"
                 prefHeight="39.0" prefWidth="204.0" text="Student" textAlignment="CENTER"
-                textOverrun="CENTER_ELLIPSIS" >
+                textOverrun="CENTER_ELLIPSIS">
             <font>
                 <Font name="Fantasy" size="24.0"/>
             </font>
