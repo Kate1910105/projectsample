@@ -6,6 +6,14 @@ import javafx.scene.Scene;
 import lms.Main;
 
 public class UpdateStudentPanelWindow {
+    @FXML
+    private void initialize() {
+        System.out.println("update student panel init");
+    }
+
+    public static Scene getScene() throws Exception {
+        return Main.loadScene("update_student");
+    }
 
     @FXML
     public void confirm(ActionEvent actionEvent) throws Exception {
