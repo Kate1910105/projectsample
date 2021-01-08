@@ -31,7 +31,7 @@
             </VBox.margin>
         </Label>
 
-        <Button fx:id="Student" alignment="TOP_CENTER" lineSpacing="5.0" mnemonicParsing="false"
+        <Button alignment="TOP_CENTER" lineSpacing="5.0" mnemonicParsing="false"
                 onAction="#showStudent"
                 prefHeight="39.0" prefWidth="204.0" text="Student" textAlignment="CENTER"
                 textOverrun="CENTER_ELLIPSIS">
@@ -43,7 +43,7 @@
             </VBox.margin>
         </Button>
 
-        <Button fx:id="Book" alignment="CENTER" mnemonicParsing="false" onAction="#showBook" prefHeight="26.0"
+        <Button alignment="CENTER" mnemonicParsing="false" onAction="#showBook" prefHeight="26.0"
                 prefWidth="204.0" text="Book" textAlignment="CENTER">
             <font>
                 <Font name="Fantasy" size="24.0"/>
@@ -53,7 +53,7 @@
             </VBox.margin>
         </Button>
 
-        <Button fx:id="Librarian" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+        <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false"
                 onAction="#showLibrarian" prefHeight="52.0" prefWidth="203.0" text="Librarian"
                 textAlignment="CENTER"
                 wrapText="true">
