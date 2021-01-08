@@ -6,22 +6,34 @@ import javafx.scene.Scene;
 import lms.Main;
 
 public class AdminPanelWindow {
-    public static Scene getScene() throws Exception {
-        return Main.loadScene("adminpanel");
-    }
-
     @FXML
     private void initialize() {
         System.out.println("admin panel init");
     }
 
-    public void showStudent(ActionEvent event) {
+    public static Scene getScene() throws Exception {
+        return Main.loadScene("adminpanel");
+    }
+
+
+    @FXML
+    public void showStudent(ActionEvent event) throws Exception {
+        Scene scene;
+        scene = ListStudentPanelWindow.getScene();
+        Main.window.setScene(scene);
+    }
+
+    public void showBook(ActionEvent event) throws Exception {
+        Scene scene;
+        scene = ListBookPanelWindow.getScene();
+        Main.window.setScene(scene);
 
     }
-    public void showBook(ActionEvent event) {
 
-    }
-    public void showLibrarian(ActionEvent event) {
+    public void showLibrarian(ActionEvent event) throws Exception {
+        Scene scene;
+        scene = ListLibrarianPanelWindow.getScene();
+        Main.window.setScene(scene);
 
     }
 }
