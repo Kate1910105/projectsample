@@ -23,7 +23,7 @@ public class Loan extends Model {
 
     public void create() throws SQLException {
         Connection connection = db.getConnection();
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.LOANS(ID,USER_ID,BOOK_ID,BORROWED_DATE,DEADLINE_AT,RETURNED_DATE) VALUES (?,?,?,?,?,?)");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.LOANS(USER_ID,BOOK_ID,BORROWED_DATE,DEADLINE_AT,RETURNED_DATE) VALUES (?,?,?,?,?)");
         statement.setInt(2, userID);
         statement.setInt(3, bookID);
         statement.setTimestamp(7, Timestamp.valueOf(borrowedDate));

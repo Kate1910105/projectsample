@@ -24,7 +24,7 @@ public class Book extends Model {
 
     public void create() throws SQLException {
         Connection connection = db.getConnection();
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.USERS(ID,ISBN,TITLE,SUBJECT,AUTHOR,PUBLISH_DATE,CREATED_AT) VALUES (?,?,?,?,?,?,?)");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.USERS(ISBN,TITLE,SUBJECT,AUTHOR,PUBLISH_DATE,CREATED_AT) VALUES (?,?,?,?,?,?)");
         statement.setString(2, ISBN);
         statement.setString(3, title);
         statement.setString(4, subject);
