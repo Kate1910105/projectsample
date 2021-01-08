@@ -23,7 +23,7 @@ public class User extends Model {
     public boolean isActive = true;
     public LocalDateTime createdAt;
 
-    // Convert Role enum to raw format
+    // Convert Role enum to raw format (to store in db)
     public static int roleToRaw(Role role) {
         switch (role) {
             case Administrator:
@@ -35,7 +35,7 @@ public class User extends Model {
         }
     }
 
-    // Convert raw to Role enum
+    // Convert raw to Role enum (to use in the code)
     public static Role rawToRole(int role) {
         switch (role) {
             case 1:
@@ -106,6 +106,7 @@ public class User extends Model {
         }
     }
 
+    // returns a list of users
     public static ArrayList<User> all() throws SQLException {
         Connection connection = db.getConnection();
 
@@ -129,6 +130,7 @@ public class User extends Model {
         return users;
     }
 
+    // method to modify users
     public void update() throws SQLException {
         Connection connection = db.getConnection();
         String query = "UPDATE APP.USERS\n" +
@@ -161,7 +163,7 @@ public class User extends Model {
         statement.close();
         connection.close();
     }
-
+    
     public void delete() throws SQLException {
         Connection connection = db.getConnection();
         String query = "DELETE FROM APP.USERS WHERE ID=?";

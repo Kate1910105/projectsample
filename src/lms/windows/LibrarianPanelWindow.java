@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import lms.Main;
 
+//scenes for librarian
 public class LibrarianPanelWindow {
     public static Scene getScene() throws Exception {
         return Main.loadScene("librarianpanel");

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import lms.Main;
 
+//scenes for administrators
 public class AdminPanelWindow {
     @FXML
     private void initialize() {

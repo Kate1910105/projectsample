@@ -37,7 +37,7 @@ public class Book extends Model {
             System.out.printf("book %s is created\n", title);
         } catch (SQLException e) {
             if (e.getSQLState().equals("23505")) {
-                System.out.printf("book %s is already exists\n", title);
+                System.out.printf("book %s already exists\n", title);
             }
         }
     }

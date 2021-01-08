@@ -41,6 +41,7 @@ public class Main extends Application {
         Book.createTable();
         Loan.createTable();
 
+        //default admin
         User user = new User();
         user.username = "irda";
         user.password = "password";

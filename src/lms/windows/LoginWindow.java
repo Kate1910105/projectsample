@@ -39,6 +39,7 @@ public class LoginWindow {
             alert.showAndWait();
             Scene scene;
 
+            //after logging in the next appropriate scene is called according to the role
             switch (user.role) {
                 case Administrator:
                     scene = AdminPanelWindow.getScene();
