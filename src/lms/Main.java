@@ -44,6 +44,17 @@ public class Main extends Application {
         Book.createTable();
         Loan.createTable();
 
+        User user = new User();
+        user.username = "irda";
+        user.password = "password";
+        user.fullName = "Irda";
+        user.role = Role.Administrator;
+        user.createdAt = LocalDateTime.now();
+        user.isActive = true;
+        user.create();
+
+
+
         ArrayList<User> users = User.all();
         System.out.println(users);
 

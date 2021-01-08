@@ -37,6 +37,18 @@
                </font>
             </Label>
             <TextField layoutX="88.0" layoutY="250.0" prefHeight="25.0" prefWidth="334.0" />
+            <Label layoutX="18.0" layoutY="302.0" text="Created">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <DatePicker layoutX="88.0" layoutY="300.0" />
+            <Label layoutX="18.0" layoutY="347.0" text="Publish">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <DatePicker layoutX="88.0" layoutY="345.0" />
          </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
