@@ -4,7 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d2f7f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d2f7f2;"
+           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="lms.windows.CreateStudentPanelWindow"
+
+>
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -37,17 +41,20 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
+            <Button onAction="#confirm" layoutX="320.0" layoutY="325.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="91.0" text="Confirm"></Button>
          </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="102.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="Add Student" textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" onAction="#addstudent" contentDisplay="CENTER" layoutX="36.0" layoutY="102.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="Add Student" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="186.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="List of Students" textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" onAction="#liststudent" contentDisplay="CENTER" layoutX="36.0" layoutY="186.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="List of Students" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
+                <Button fx:id="list_student" onAction="#back" layoutX="43.0" layoutY="331.0" mnemonicParsing="false"
+                        prefHeight="32.0" prefWidth="66.0" text="Return"/>
             </children></AnchorPane>
     </items>
 </SplitPane>
