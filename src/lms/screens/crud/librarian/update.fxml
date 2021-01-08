@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d2f7f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -40,11 +40,11 @@
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="116.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="Add Librarian" textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="101.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="Add Librarian" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="199.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="List" textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="187.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="List" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>

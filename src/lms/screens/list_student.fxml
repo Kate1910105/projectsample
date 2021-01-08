@@ -9,10 +9,10 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <ListView layoutY="49.0" prefHeight="349.0" prefWidth="441.0" />
+                <ListView layoutY="49.0" prefHeight="349.0" prefWidth="441.0"/>
                 <Label layoutX="146.0" layoutY="20.0" text="LIST OF STUDENTS">
                     <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="14.0"/>
                     </font>
                 </Label>
             <ButtonBar layoutX="234.0" layoutY="336.0" prefHeight="40.0" prefWidth="193.0">
