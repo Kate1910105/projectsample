@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d2f7f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -17,8 +17,8 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Button layoutX="121.0" layoutY="167.0" mnemonicParsing="false" text="YES" />
-            <Button layoutX="221.0" layoutY="167.0" mnemonicParsing="false" text="CANCEL" />
+            <Button layoutX="135.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="YES" />
+            <Button layoutX="221.0" layoutY="166.0" mnemonicParsing="false" text="CANCEL" />
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>

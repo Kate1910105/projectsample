@@ -44,7 +44,7 @@
                     <font>
                         <Font size="14.0" />
                     </font></Button>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="186.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="List of Students" textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="187.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="List of Students" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
