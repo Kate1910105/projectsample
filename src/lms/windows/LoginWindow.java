@@ -32,6 +32,7 @@ public class LoginWindow {
         System.out.println("Password: " + password.getText());
         try {
             User user = User.login(username.getText(), password.getText());
+            Main.currentUser = user;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Logged in");
             alert.setHeaderText(null);

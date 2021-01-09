@@ -1,5 +1,6 @@
 package lms.models;
 
+import lms.Main;
 import lms.exceptions.authorization.AuthorizationError;
 import lms.exceptions.authorization.InactiveUser;
 import lms.exceptions.authorization.InvalidCredentials;
@@ -257,6 +258,11 @@ public class User extends Model {
             user.createdAt = LocalDateTime.now();
             user.isActive = true;
             user.create();
+
         }
     }
+
+
+
+
 }

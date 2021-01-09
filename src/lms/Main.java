@@ -18,6 +18,8 @@ import lms.types.Role;
 public class Main extends Application {
     public static Stage window;
 
+    public static User currentUser;
+
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
@@ -46,4 +48,8 @@ public class Main extends Application {
 //      System.out.println("Connected");
         launch(args);
     }
+    public static void setCurrentUser(){
+
+    }
+    
 }
