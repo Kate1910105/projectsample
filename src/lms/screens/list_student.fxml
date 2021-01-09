@@ -20,7 +20,7 @@
                 <ButtonBar layoutX="234.0" layoutY="336.0" prefHeight="40.0" prefWidth="193.0"/>
                 <Button layoutX="385.0" layoutY="522.0" mnemonicParsing="false" onAction="#update" text="Update"/>
                 <Button layoutX="478.0" layoutY="522.0" mnemonicParsing="false" onAction="#delete" text="Delete"/>
-                <TableView layoutX="14.0" layoutY="59.0" prefHeight="452.0" prefWidth="545.0">
+                <TableView fx:id = "tableView" layoutX="14.0" layoutY="59.0" prefHeight="452.0" prefWidth="545.0">
                     <columns>
                         <TableColumn prefWidth="75.0" text="ID"/>
                         <TableColumn prefWidth="262.0" text="Full Name"/>
