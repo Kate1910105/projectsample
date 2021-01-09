@@ -49,12 +49,14 @@ public class UpdateLibrarianPanelWindow {
         scene = ListLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
     }
+
     @FXML
     public void addlibrarian(ActionEvent actionEvent) throws Exception {
         Scene scene;
         scene = CreateLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
     }
+
     @FXML
     public void listLibrarian(ActionEvent actionEvent) throws Exception {
         Scene scene;

@@ -18,7 +18,7 @@ import java.util.Optional;
 
 public class ListLibrarianPanelWindow {
     @FXML
-    private TableView <User> tableView;
+    private TableView<User> tableView;
 
     @FXML
     private void initialize() throws SQLException {
@@ -88,11 +88,11 @@ public class ListLibrarianPanelWindow {
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Delete Confirmation");
-            alert.setHeaderText("Delete User: " + selectedItem.getFullName());
+            alert.setHeaderText("Delete Librarian: " + selectedItem.getFullName());
             alert.setContentText("Are you sure?");
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get()==ButtonType.OK) {
+            if (result.isPresent() && result.get() == ButtonType.OK) {
                 tableView.getItems().remove(selectedItem);
                 selectedItem.delete();
             } else {
