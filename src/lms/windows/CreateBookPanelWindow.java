@@ -29,8 +29,11 @@ public class CreateBookPanelWindow {
     @FXML
     private void initialize() {
         System.out.println("create book panel init");
+        getDefaultStatus();
     }
-
+    public void getDefaultStatus() {
+        status.setValue("Available");
+    }
     public static Scene getScene() throws Exception {
         return Main.loadScene("create_book");}
 
@@ -65,10 +68,8 @@ public class CreateBookPanelWindow {
 
         LocalDate datePublish = publish.getValue();
         book.publishDate = datePublish.atStartOfDay();
-        if (status.getValue().equals("Available")) {
-            book.status = BookStatus.Available;
-        }
-        else if(status.getValue().equals("Borrowed")) {
+
+        if(status.getValue().equals("Borrowed")) {
             book.status = BookStatus.Borrowed;
         }
         else if(status.getValue().equals("Reserved")) {

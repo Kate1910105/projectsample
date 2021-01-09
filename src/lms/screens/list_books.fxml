@@ -4,34 +4,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-           minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #d2f7f2;"
-           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="lms.windows.ListBookPanelWindow">
+<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #d2f7f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.windows.ListBookPanelWindow">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
                 <Label layoutX="245.0" layoutY="14.0" text="LIST OF BOOKS">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="377.0" layoutY="533.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0"
-                        prefWidth="80.0" text="Update"/>
-                <Button layoutX="484.0" layoutY="533.0" mnemonicParsing="false" onAction="#delete" prefHeight="32.0"
-                        prefWidth="80.0" text="Delete"/>
-                <TableView fx:id = "tableView" layoutX="21.0" layoutY="47.0" prefHeight="421.0" prefWidth="543.0" />
+                <Button layoutX="377.0" layoutY="533.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="80.0" text="Update" />
+                <Button layoutX="484.0" layoutY="533.0" mnemonicParsing="false" onAction="#delete" prefHeight="32.0" prefWidth="80.0" text="Delete" />
+                <TableView fx:id="tableView" layoutX="8.0" layoutY="47.0" prefHeight="421.0" prefWidth="572.0" />
             </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
-                <Button onAction="#addbook" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="116.0"
-                        mnemonicParsing="false" prefHeight="53.0" prefWidth="80.0" text="Add Book"
-                        textAlignment="CENTER" wrapText="true"/>
-                <Button onAction="#listbook" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="206.0"
-                        mnemonicParsing="false" prefHeight="53.0" prefWidth="80.0" text="List"/>
-                <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="331.0"
-                        mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="80.0" text="Return"/>
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="116.0" mnemonicParsing="false" onAction="#addbook" prefHeight="53.0" prefWidth="80.0" text="Add Book" textAlignment="CENTER" wrapText="true" />
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="206.0" mnemonicParsing="false" onAction="#listbook" prefHeight="53.0" prefWidth="80.0" text="List" />
+                <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="331.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="80.0" text="Return" />
 
             </children>
         </AnchorPane>
