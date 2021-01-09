@@ -13,7 +13,7 @@ import lms.models.User;
 
 
 public class LoginWindow {
-    public Button login;
+
     @FXML
     private TextField username;
 
@@ -27,7 +27,6 @@ public class LoginWindow {
     @FXML
     private void initialize() {
         System.out.println("login init");
-        login.setDefaultButton(true);
     }
 
     public void login(ActionEvent event) throws Exception {
