@@ -42,6 +42,8 @@ public class Main extends Application {
         // login: irda
         // password: password
         User.defaultAdmin();
+        User.defaultLibrarian();
+        User.defaultStudent();
         Book.createTable();
         Loan.createTable();
 

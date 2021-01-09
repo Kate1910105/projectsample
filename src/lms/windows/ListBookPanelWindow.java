@@ -19,8 +19,23 @@ public class ListBookPanelWindow {
     @FXML
     public void back(ActionEvent event) throws Exception {
         Scene scene;
-        scene = AdminPanelWindow.getScene();
+        System.out.println(Main.currentUser.role);
+        switch (Main.currentUser.role) {
+            case Administrator:
+                scene = AdminPanelWindow.getScene();
+                break;
+            case Librarian:
+                scene = LibrarianPanelWindow.getScene();
+                break;
+            default:
+                scene = StudentPanelWindow.getScene();
+                break;
+
+        }
+        System.out.println(Main.currentUser.role);
+
         Main.window.setScene(scene);
+
     }
 
     public void addbook(ActionEvent actionEvent) throws Exception {

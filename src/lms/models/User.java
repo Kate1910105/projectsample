@@ -244,8 +244,8 @@ public class User extends Model {
         }
     }
     public static void defaultAdmin() throws SQLException {
-        String username = "irda";
-        String password = "password";
+        String username = "admin";
+        String password = "admin";
 
         try {
             User admin = login(username, password);
@@ -253,8 +253,45 @@ public class User extends Model {
             User user = new User();
             user.username = username;
             user.password = password;
-            user.fullName = "Irda";
+            user.fullName = "Admin";
             user.role = Role.Administrator;
+            user.createdAt = LocalDateTime.now();
+            user.isActive = true;
+            user.create();
+
+        }
+    }
+
+    public static void defaultLibrarian() throws SQLException {
+        String username = "librarian";
+        String password = "staff";
+
+        try {
+            User admin = login(username, password);
+        } catch (AuthorizationError error) {
+            User user = new User();
+            user.username = username;
+            user.password = password;
+            user.fullName = "Librarian";
+            user.role = Role.Librarian;
+            user.createdAt = LocalDateTime.now();
+            user.isActive = true;
+            user.create();
+
+        }
+    }
+    public static void defaultStudent() throws SQLException {
+        String username = "student";
+        String password = "student";
+
+        try {
+            User admin = login(username, password);
+        } catch (AuthorizationError error) {
+            User user = new User();
+            user.username = username;
+            user.password = password;
+            user.fullName = "Student";
+            user.role = Role.Student;
             user.createdAt = LocalDateTime.now();
             user.isActive = true;
             user.create();
