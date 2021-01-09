@@ -56,7 +56,7 @@ public class UpdateLibrarianPanelWindow {
         Main.window.setScene(scene);
     }
     @FXML
-    public void listlibrarian(ActionEvent actionEvent) throws Exception {
+    public void listLibrarian(ActionEvent actionEvent) throws Exception {
         Scene scene;
         scene = ListLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
