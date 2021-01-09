@@ -51,6 +51,7 @@ public class ListLibrarianPanelWindow {
         tableView.getItems().addAll(librarians);
 
         System.out.println(users);
+
     }
 
 
@@ -87,7 +88,7 @@ public class ListLibrarianPanelWindow {
             alert.setContentText("Are you sure?");
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
+            if (result.isPresent() && result.get()==ButtonType.OK) {
                 tableView.getItems().remove(selectedItem);
                 selectedItem.delete();
             } else {

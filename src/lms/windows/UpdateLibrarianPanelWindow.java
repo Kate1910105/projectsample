@@ -3,10 +3,23 @@ package lms.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import lms.Main;
 import lms.models.User;
+import lms.types.Role;
+
+import java.time.LocalDateTime;
 
 public class UpdateLibrarianPanelWindow {
+
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField fullName;
+    @FXML
+    private PasswordField password;
+
     @FXML
     private void initialize() {
         User editingUser = Main.editingUser;
@@ -20,6 +33,14 @@ public class UpdateLibrarianPanelWindow {
 
     @FXML
     public void confirm(ActionEvent actionEvent) throws Exception {
+        User editingUser = Main.editingUser;
+        editingUser.username = username.getText();
+        editingUser.password = password.getText();
+        editingUser.fullName = fullName.getText();
+        editingUser.role = Role.Librarian;
+        editingUser.createdAt = LocalDateTime.now();
+        editingUser.isActive = true;
+        editingUser.update();
 
         Scene scene;
         scene = ListLibrarianPanelWindow.getScene();

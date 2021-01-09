@@ -9,6 +9,14 @@ import javafx.scene.control.TextField;
 import lms.Main;
 
 public class UpdateStudentPanelWindow {
+
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField fullName;
+    @FXML
+    private PasswordField password;
+
     @FXML
     private void initialize() {
         System.out.println("update student panel init");
@@ -17,14 +25,6 @@ public class UpdateStudentPanelWindow {
     public static Scene getScene() throws Exception {
         return Main.loadScene("update_student");
     }
-    @FXML
-    private TextField username;
-    @FXML
-    private TextField fullName;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private CheckBox canBorrow;
 
     @FXML
     public void confirm(ActionEvent actionEvent) throws Exception {
