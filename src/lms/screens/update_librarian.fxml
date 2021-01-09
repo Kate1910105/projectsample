@@ -7,7 +7,7 @@
 <SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d2f7f2;"
            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="lms.windows.UpdateStudentPanelWindow"
+           fx:controller="lms.windows.UpdateLibrarianPanelWindow"
 >
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -36,7 +36,7 @@
                 </Label>
                 <PasswordField layoutX="88.0" layoutY="213.0" prefHeight="25.0" prefWidth="334.0"/>
                 <CheckBox layoutX="107.0" layoutY="274.0" mnemonicParsing="false"/>
-                <Label layoutX="187.0" layoutY="28.0" text="UPDATE STUDENT">
+                <Label layoutX="187.0" layoutY="28.0" text="UPDATE LIBRARIAN">
                     <font>
                         <Font name="System Bold" size="13.0"/>
                     </font>
@@ -48,14 +48,14 @@
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
-                <Button alignment="CENTER" onAction="#addstudent" contentDisplay="CENTER" layoutX="36.0" layoutY="102.0"
+                <Button alignment="CENTER" onAction="#addlibrarian" contentDisplay="CENTER" layoutX="36.0" layoutY="102.0"
                         lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0" text="Add Student"
                         textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0"/>
                     </font>
                 </Button>
-                <Button alignment="CENTER" onAction="#liststudent" contentDisplay="CENTER" layoutX="36.0"
+                <Button alignment="CENTER" onAction="#listlibrarian" contentDisplay="CENTER" layoutX="36.0"
                         layoutY="186.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="79.0"
                         text="List of Students" textAlignment="CENTER" wrapText="true">
                     <font>

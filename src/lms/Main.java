@@ -12,7 +12,6 @@ import lms.models.User;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.ArrayList;
 import java.time.LocalDateTime;
 import lms.types.Role;
 
@@ -38,23 +37,11 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
         Database.getInstance().connect();
         User.createTable();
+        // login: irda
+        // password: password
+        User.defaultAdmin();
         Book.createTable();
         Loan.createTable();
-
-        //default admin
-        User user = new User();
-        user.username = "irda";
-        user.password = "password";
-        user.fullName = "Irda";
-        user.role = Role.Administrator;
-        user.createdAt = LocalDateTime.now();
-        user.isActive = true;
-        user.create();
-
-
-
-        ArrayList<User> users = User.all();
-        System.out.println(users);
 
 //      System.out.println("Connected");
         launch(args);

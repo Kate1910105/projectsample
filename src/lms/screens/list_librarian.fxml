@@ -17,17 +17,19 @@
                         <Font name="System Bold" size="14.0"/>
                     </font>
                 </Label>
+                <ButtonBar layoutX="234.0" layoutY="336.0" prefHeight="40.0" prefWidth="193.0"/>
+                <Button layoutX="412.0" layoutY="376.0" mnemonicParsing="false" onAction="#update" text="Update"/>
+                <Button layoutX="481.0" layoutY="376.0" mnemonicParsing="false" onAction="#delete" text="Delete"/>
             </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
-                <Button layoutX="36.0" layoutY="116.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="80.0"
-                        text="Add Librarian" textAlignment="CENTER" wrapText="true"/>
-                <Button layoutX="36.0" layoutY="206.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="80.0"
-                        text="List"/>
-                <Button fx:id="list_student" layoutX="36.0" layoutY="331.0" mnemonicParsing="false" onAction="#back"
-                        prefHeight="32.0" prefWidth="80.0" text="Return"/>
-
+                <Button layoutX="43.0" layoutY="90.0" mnemonicParsing="false" onAction="#addlibrarian" prefHeight="53.0"
+                        prefWidth="66.0" text="Add Librarian" textAlignment="CENTER" wrapText="true"/>
+                <Button layoutX="43.0" layoutY="166.0" mnemonicParsing="false" onAction="#listlibrarian" prefHeight="53.0"
+                        prefWidth="66.0" text="List"/>
+                <Button layoutX="43.0" layoutY="331.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0"
+                        prefWidth="66.0" text="Return"/>
             </children>
         </AnchorPane>
     </items>

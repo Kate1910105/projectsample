@@ -5,15 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import lms.Main;
 
-public class ListLibrarianPanelWindow {
+public class DeleteLibrarianPanelWindow {
     @FXML
     private void initialize() {
-        System.out.println("librarian list panel init");
+        System.out.println("delete librarian panel init");
     }
 
-
     public static Scene getScene() throws Exception {
-        return Main.loadScene("list_librarian");
+        return Main.loadScene("delete_librarian");
     }
 
     @FXML
@@ -28,25 +27,11 @@ public class ListLibrarianPanelWindow {
         scene = ListLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
     }
-    @FXML
-    public void delete(ActionEvent actionEvent) throws Exception {
-        Scene scene;
-        scene = DeleteLibrarianPanelWindow.getScene();
-        Main.window.setScene(scene);
-
-    }
-    @FXML
-    public void update(ActionEvent actionEvent) throws Exception {
-        Scene scene;
-        scene = UpdateLibrarianPanelWindow.getScene();
-        Main.window.setScene(scene);
-    }
 
     @FXML
     public void back(ActionEvent event) throws Exception {
         Scene scene;
-        scene = AdminPanelWindow.getScene();
+        scene = ListLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
     }
-
 }
