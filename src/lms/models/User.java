@@ -25,6 +25,14 @@ public class User extends Model {
     public boolean isActive = true;
     public LocalDateTime createdAt;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
     // Convert Role enum to raw format (to store in db)
     public static int roleToRaw(Role role) {
         switch (role) {
