@@ -4,17 +4,55 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lms.Main;
 import lms.models.Book;
 import lms.models.User;
+import lms.types.Role;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ListBookPanelWindow {
-    public TableView tableView;
+    @FXML
+    private TableView <Book> tableView;
+
 
     @FXML
-    private void initialize() {
+    private void initialize() throws SQLException  {
         System.out.println("book list panel init");
+//        ArrayList<Book> books = Book.all();
+//
+//        TableColumn<Book, String> idColumn = new TableColumn<>("ID");
+//        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+//        tableView.getColumns().add(idColumn);
+//
+//        TableColumn<Book, String> isbnColumn = new TableColumn<>("ISBN");
+//        isbnColumn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+//        tableView.getColumns().add(isbnColumn);
+//
+//        TableColumn<Book, String> titleColumn = new TableColumn<>("Title");
+//        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+//        tableView.getColumns().add(titleColumn);
+//
+//        TableColumn<Book, String> subjectColumn = new TableColumn<>("Subject");
+//        subjectColumn.setCellValueFactory(new PropertyValueFactory<>("subject"));
+//        tableView.getColumns().add(subjectColumn);
+//
+//        TableColumn<Book, String> authorColumn = new TableColumn<>("Author");
+//        authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
+//        tableView.getColumns().add(authorColumn);
+//
+//        TableColumn<Book, String> statusColumn = new TableColumn<>("Status");
+//        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+//        tableView.getColumns().add(statusColumn);
+//
+//        tableView.getItems().addAll(books);
+//
+//        System.out.println(books);
+
     }
 
 

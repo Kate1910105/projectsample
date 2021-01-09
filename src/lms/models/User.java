@@ -15,6 +15,7 @@ import lms.windows.LoginWindow;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 // user class used to represent all roles
@@ -29,20 +30,22 @@ public class User extends Model {
     public boolean isActive = true;
     public LocalDateTime createdAt;
 
+    public String getCreatedAt() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return createdAt.format(formatter);
+    }
+
     public int getId() {
         return id;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 
     public String getUsername() {
         return username;
     }
 
-    public Boolean getcanBorrow() {
-        return canBorrow;
+    public String getCanBorrow() {
+        return canBorrow ? "Yes" : "No";
     }
 
 
@@ -198,7 +201,7 @@ public class User extends Model {
         statement.close();
         connection.close();
     }
-    
+
     public void delete() throws SQLException {
         Connection connection = db.getConnection();
         String query = "DELETE FROM APP.USERS WHERE ID=?";
@@ -276,6 +279,7 @@ public class User extends Model {
             throw new AuthorizationError("Unknown");
         }
     }
+
     public static void defaultAdmin() throws SQLException {
         String username = "admin";
         String password = "admin";
@@ -294,6 +298,7 @@ public class User extends Model {
 
         }
     }
+
     public void logout() throws Exception {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Logout");
@@ -323,6 +328,7 @@ public class User extends Model {
 
         }
     }
+
     public static void defaultStudent() throws SQLException {
         String username = "student";
         String password = "student";

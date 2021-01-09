@@ -75,6 +75,29 @@ public class Book extends Model {
         }
     }
 
+    public static ArrayList<Book> all() throws SQLException {
+        Connection connection = db.getConnection();
+
+        String query = "SELECT * FROM APP.BOOKS";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+        ArrayList<Book> books = new ArrayList<>();
+
+        while (result.next()) {
+            Book book = serializeBookFromResult(result);
+            books.add(book);
+        }
+
+        statement.close();
+        connection.close();
+
+        return books;
+    }
+
     public static Book serializeBookFromResult(ResultSet result) {
         Book book = new Book();
         try {
