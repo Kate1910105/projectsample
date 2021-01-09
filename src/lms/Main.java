@@ -12,8 +12,6 @@ import lms.models.User;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.time.LocalDateTime;
-import lms.types.Role;
 
 public class Main extends Application {
     public static Stage window;
@@ -21,6 +19,8 @@ public class Main extends Application {
     public static User currentUser;
 
     public static User editingUser;
+
+    public  static Book editingBook;
 
     @Override
     public void start(Stage stage) throws Exception {

@@ -21,4 +21,10 @@ public class StudentPanelWindow {
         User user = new User();
         user.logout();
     }
+
+    public void listBooks(ActionEvent actionEvent) throws Exception {
+        Scene scene;
+        scene = ListBookStudentsPanelWindow.getScene();
+        Main.window.setScene(scene);
+    }
 }

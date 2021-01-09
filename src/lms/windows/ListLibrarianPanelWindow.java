@@ -136,7 +136,6 @@ public class ListLibrarianPanelWindow {
             default:
                 scene = StudentPanelWindow.getScene();
                 break;
-
         }
         System.out.println(Main.currentUser.role);
 

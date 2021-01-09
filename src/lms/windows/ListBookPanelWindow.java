@@ -3,9 +3,15 @@ package lms.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableView;
 import lms.Main;
+import lms.models.Book;
+import lms.models.User;
 
 public class ListBookPanelWindow {
+    public TableView tableView;
+
     @FXML
     private void initialize() {
         System.out.println("book list panel init");
@@ -50,10 +56,7 @@ public class ListBookPanelWindow {
         Main.window.setScene(scene);
     }
 
-    public void update(ActionEvent actionEvent) throws Exception  {
-        Scene scene;
-        scene = UpdateBookPanelWindow.getScene();
-        Main.window.setScene(scene);
+    public void update(ActionEvent actionEvent) throws Exception {
 
     }
 
