@@ -29,8 +29,17 @@ public class User extends Model {
         return id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+
     public String getFullName() {
         return fullName;
+    }
+
+    public Role getRole() {
+        return role;
     }
 
     // Convert Role enum to raw format (to store in db)

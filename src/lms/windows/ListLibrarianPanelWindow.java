@@ -33,9 +33,17 @@ public class ListLibrarianPanelWindow {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableView.getColumns().add(idColumn);
 
+        TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+        tableView.getColumns().add(usernameColumn);
+
         TableColumn<User, String> fullNameColumn = new TableColumn<>("Full Name");
         fullNameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         tableView.getColumns().add(fullNameColumn);
+
+        TableColumn<User, String> roleColumn = new TableColumn<>("Role");
+        roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+        tableView.getColumns().add(roleColumn);
 
         tableView.getItems().addAll(librarians);
 
