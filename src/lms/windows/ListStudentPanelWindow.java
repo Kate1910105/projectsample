@@ -1,16 +1,19 @@
 package lms.windows;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 import lms.Main;
+import lms.exceptions.authorization.UserNotFound;
+import lms.models.User;
+
+import java.sql.SQLException;
 
 public class ListStudentPanelWindow {
-    @FXML
-      private void initialize() {
-    System.out.println("student list panel init");
-}
-
 
       public static Scene getScene() throws Exception {
         return Main.loadScene("list_student");

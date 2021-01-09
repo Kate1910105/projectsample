@@ -12,6 +12,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+// user class used to represent all roles
 public class User extends Model {
 
     public int id;
@@ -23,7 +24,7 @@ public class User extends Model {
     public boolean isActive = true;
     public LocalDateTime createdAt;
 
-    // Convert Role enum to raw format
+    // Convert Role enum to raw format (to store in db)
     public static int roleToRaw(Role role) {
         switch (role) {
             case Administrator:
@@ -35,7 +36,7 @@ public class User extends Model {
         }
     }
 
-    // Convert raw to Role enum
+    // Convert raw to Role enum (to use in the code)
     public static Role rawToRole(int role) {
         switch (role) {
             case 1:
@@ -106,6 +107,7 @@ public class User extends Model {
         }
     }
 
+    // returns a list of users
     public static ArrayList<User> all() throws SQLException {
         Connection connection = db.getConnection();
 
@@ -129,6 +131,7 @@ public class User extends Model {
         return users;
     }
 
+    // method to modify users
     public void update() throws SQLException {
         Connection connection = db.getConnection();
         String query = "UPDATE APP.USERS\n" +
@@ -161,7 +164,7 @@ public class User extends Model {
         statement.close();
         connection.close();
     }
-
+    
     public void delete() throws SQLException {
         Connection connection = db.getConnection();
         String query = "DELETE FROM APP.USERS WHERE ID=?";
@@ -237,6 +240,23 @@ public class User extends Model {
             return user;
         } catch (SQLException error) {
             throw new AuthorizationError("Unknown");
+        }
+    }
+    public static void defaultAdmin() throws SQLException {
+        String username = "irda";
+        String password = "password";
+
+        try {
+            User admin = login(username, password);
+        } catch (AuthorizationError error) {
+            User user = new User();
+            user.username = username;
+            user.password = password;
+            user.fullName = "Irda";
+            user.role = Role.Administrator;
+            user.createdAt = LocalDateTime.now();
+            user.isActive = true;
+            user.create();
         }
     }
 }
