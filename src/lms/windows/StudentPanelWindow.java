@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import lms.Main;
+import lms.models.User;
 
 public class StudentPanelWindow {
     public static Scene getScene() throws Exception {
@@ -17,13 +18,7 @@ public class StudentPanelWindow {
     }
 
     public void logout(ActionEvent event) throws Exception {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText(null);
-        alert.setContentText(String.format("Goodbye!"));
-        alert.showAndWait();
-        Scene scene;
-        scene = LoginWindow.getScene();
-        Main.window.setScene(scene);
+        User user = new User();
+        user.logout();
     }
 }
