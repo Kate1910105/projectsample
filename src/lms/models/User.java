@@ -1,5 +1,8 @@
 package lms.models;
 
+import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import lms.Main;
 import lms.exceptions.authorization.AuthorizationError;
 import lms.exceptions.authorization.InactiveUser;
@@ -8,6 +11,7 @@ import lms.exceptions.authorization.UserNotFound;
 import lms.exceptions.model.ModelError;
 import lms.exceptions.model.RecordNotFound;
 import lms.types.Role;
+import lms.windows.LoginWindow;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -277,6 +281,16 @@ public class User extends Model {
             user.create();
 
         }
+    }
+    public void logout() throws Exception {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText(null);
+        alert.setContentText(String.format("Goodbye!"));
+        alert.showAndWait();
+        Scene scene;
+        scene = LoginWindow.getScene();
+        Main.window.setScene(scene);
     }
 
     public static void defaultLibrarian() throws SQLException {
