@@ -23,6 +23,9 @@ public class UpdateLibrarianPanelWindow {
     @FXML
     private void initialize() {
         User editingUser = Main.editingUser;
+        username.setText(editingUser.username);
+        fullName.setText(editingUser.fullName);
+        password.setText(editingUser.password);
         System.out.println(editingUser.username);
         System.out.println("update librarian panel init");
     }
