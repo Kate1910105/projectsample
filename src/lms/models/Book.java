@@ -1,13 +1,13 @@
 package lms.models;
 
+import lms.exceptions.model.ModelError;
+import lms.exceptions.model.RecordNotFound;
 import lms.types.BookStatus;
 import lms.types.Role;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Book extends Model {
     public int id;
@@ -44,6 +44,51 @@ public class Book extends Model {
             if (e.getSQLState().equals("23505")) {
                 System.out.printf("book %s already exists\n", title);
             }
+        }
+    }
+
+    public static Book fetch(int id) throws ModelError, SQLException {
+        Connection connection = db.getConnection();
+
+        String query = "SELECT * FROM APP.BOOKS WHERE ID=?";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        statement.execute();
+
+        ResultSet result = statement.getResultSet();
+        ArrayList<Book> books = new ArrayList<>();
+
+        while (result.next()) {
+            Book book = serializeBookFromResult(result);
+            books.add(book);
+        }
+
+        statement.close();
+        connection.close();
+
+        if (books.size() == 0) {
+            throw new RecordNotFound(String.format("Book with id %d is not found", id));
+        } else {
+            return books.get(0);
+        }
+    }
+
+    public static Book serializeBookFromResult(ResultSet result) {
+        Book book = new Book();
+        try {
+            book.id = result.getInt("id");
+            book.ISBN = result.getString("ISBN");
+            book.title = result.getString("title");
+            book.subject = result.getString("subject");
+            book.author = result.getString("author");
+            book.status = rawToStatus(result.getInt("status"));
+            book.createdAt = result.getTimestamp("created_at").toLocalDateTime();
+            book.publishDate = result.getTimestamp("publish").toLocalDateTime();
+            return book;
+        } catch (SQLException e) {
+            return book;
         }
     }
 

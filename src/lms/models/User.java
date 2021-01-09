@@ -79,7 +79,9 @@ public class User extends Model {
 
     public void create() throws SQLException {
         Connection connection = db.getConnection();
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO APP.USERS(USERNAME,PASSWORD,FULL_NAME,ROLE,CAN_BORROW,IS_ACTIVE,CREATED_AT) VALUES (?,?,?,?,?,?,?)");
+        PreparedStatement statement = connection.prepareStatement(
+                "INSERT INTO APP.USERS(USERNAME,PASSWORD,FULL_NAME,ROLE,CAN_BORROW,IS_ACTIVE,CREATED_AT) " +
+                        "VALUES (?,?,?,?,?,?,?)");
         statement.setString(1, username);
         statement.setString(2, password);
         statement.setString(3, fullName);
@@ -329,8 +331,4 @@ public class User extends Model {
 
         }
     }
-
-
-
-
 }
