@@ -3,6 +3,7 @@ package lms.models;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import lms.Main;
 import lms.exceptions.authorization.AuthorizationError;
 import lms.exceptions.authorization.InactiveUser;
@@ -11,12 +12,14 @@ import lms.exceptions.authorization.UserNotFound;
 import lms.exceptions.model.ModelError;
 import lms.exceptions.model.RecordNotFound;
 import lms.types.Role;
+import lms.windows.ListBookPanelWindow;
 import lms.windows.LoginWindow;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Optional;
 
 // user class used to represent all roles
 public class User extends Model {
@@ -300,14 +303,18 @@ public class User extends Model {
     }
 
     public void logout() throws Exception {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText(null);
-        alert.setContentText(String.format("Goodbye!"));
-        alert.showAndWait();
-        Scene scene;
-        scene = LoginWindow.getScene();
-        Main.window.setScene(scene);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure to logout?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Scene scene;
+            scene = LoginWindow.getScene();
+            Main.window.setScene(scene);
+        } else {
+            alert.close();
+        }
     }
 
     public static void defaultLibrarian() throws SQLException {

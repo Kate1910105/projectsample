@@ -35,14 +35,14 @@
                     </font>
                 </Label>
                 <PasswordField layoutX="88.0" layoutY="213.0" prefHeight="25.0" prefWidth="334.0"/>
-                <CheckBox layoutX="107.0" layoutY="274.0" mnemonicParsing="false"/>
+                <CheckBox fx:id = "checkBox" layoutX="107.0" layoutY="274.0" mnemonicParsing="false"/>
                 <Label layoutX="187.0" layoutY="28.0" text="UPDATE STUDENT">
                     <font>
                         <Font name="System Bold" size="13.0"/>
                     </font>
                 </Label>
                 <Button onAction="#confirm" layoutX="320.0" layoutY="325.0" mnemonicParsing="false" prefHeight="48.0"
-                        prefWidth="91.0" text="Confirm"></Button>
+                        prefWidth="91.0" text="Confirm"/>
 
             </children>
         </AnchorPane>

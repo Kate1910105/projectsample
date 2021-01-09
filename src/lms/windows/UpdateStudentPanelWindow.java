@@ -7,9 +7,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lms.Main;
+import lms.models.User;
 
 public class UpdateStudentPanelWindow {
-
+    @FXML
+    private CheckBox checkBox;
     @FXML
     private TextField username;
     @FXML
@@ -19,6 +21,11 @@ public class UpdateStudentPanelWindow {
 
     @FXML
     private void initialize() {
+//        User editingUser = Main.editingUser;
+//        username.setText(editingUser.username);
+//        fullName.setText(editingUser.fullName);
+//        password.setText(editingUser.password);
+      //  checkBox.setSelected(editingUser.canBorrow);
         System.out.println("update student panel init");
     }
 

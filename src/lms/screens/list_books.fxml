@@ -13,8 +13,8 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="377.0" layoutY="533.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="80.0" text="Update" />
-                <Button layoutX="484.0" layoutY="533.0" mnemonicParsing="false" onAction="#delete" prefHeight="32.0" prefWidth="80.0" text="Delete" />
+                <Button layoutX="396.0" layoutY="492.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="80.0" text="Update" />
+                <Button layoutX="500.0" layoutY="491.0" mnemonicParsing="false" onAction="#delete" prefHeight="32.0" prefWidth="80.0" text="Delete" />
                 <TableView fx:id="tableView" layoutX="8.0" layoutY="47.0" prefHeight="421.0" prefWidth="572.0" />
             </children>
         </AnchorPane>

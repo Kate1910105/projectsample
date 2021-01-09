@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,14 +15,15 @@ import lms.types.Role;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ListBookPanelWindow {
     @FXML
-    private TableView <Book> tableView;
+    private TableView<Book> tableView;
 
 
     @FXML
-    private void initialize() throws SQLException  {
+    private void initialize() throws SQLException {
         System.out.println("book list panel init");
         ArrayList<Book> books = Book.all();
 
@@ -90,23 +92,56 @@ public class ListBookPanelWindow {
 
     }
 
+    @FXML
     public void addbook(ActionEvent actionEvent) throws Exception {
         Scene scene;
         scene = CreateBookPanelWindow.getScene();
         Main.window.setScene(scene);
     }
 
+    @FXML
     public void delete(ActionEvent actionEvent) throws Exception {
-        Scene scene;
-        scene = DeleteBookPanelWindow.getScene();
-        Main.window.setScene(scene);
+        Book selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select Book");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Confirmation");
+            alert.setHeaderText("Delete Book: " + selectedItem.getTitle());
+            alert.setContentText("Are you sure?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                tableView.getItems().remove(selectedItem);
+                selectedItem.delete();
+            } else {
+                Scene scene;
+                scene = ListBookPanelWindow.getScene();
+                Main.window.setScene(scene);
+            }
+        }
     }
 
+    @FXML
     public void update(ActionEvent actionEvent) throws Exception {
-
+        Book selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select Book");
+            alert.showAndWait();
+        } else {
+            Main.editingBook = selectedItem;
+            Scene scene;
+            scene = UpdateBookPanelWindow.getScene();
+            Main.window.setScene(scene);
+        }
     }
 
-    public void listbook(ActionEvent actionEvent) throws Exception  {
+    public void listbook(ActionEvent actionEvent) throws Exception {
         Scene scene;
         scene = ListBookPanelWindow.getScene();
         Main.window.setScene(scene);
