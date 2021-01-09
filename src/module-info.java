@@ -4,5 +4,6 @@ module lms {
     requires java.sql;
 
     opens lms;
+    opens lms.models;
     opens lms.windows;
 }

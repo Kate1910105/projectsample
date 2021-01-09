@@ -35,4 +35,8 @@ public class DeleteStudentPanelWindow {
         scene = ListStudentPanelWindow.getScene();
         Main.window.setScene(scene);
     }
+
+    public void delete(ActionEvent actionEvent) {
+
+    }
 }
