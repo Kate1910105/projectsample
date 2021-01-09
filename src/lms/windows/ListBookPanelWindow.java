@@ -55,7 +55,7 @@ public class ListBookPanelWindow {
         createdAtColumn.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
         tableView.getColumns().add(createdAtColumn);
 
-   /*     TableColumn<Book, String> publishDateColumn = new TableColumn<>("Publish Date");
+    /*    TableColumn<Book, String> publishDateColumn = new TableColumn<>("Publish Date");
         publishDateColumn.setCellValueFactory(new PropertyValueFactory<>("publishDate"));
         tableView.getColumns().add(publishDateColumn); */
 

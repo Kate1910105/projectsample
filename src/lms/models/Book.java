@@ -19,7 +19,7 @@ public class Book extends Model {
     public BookStatus status;
     public LocalDateTime createdAt;
     public LocalDateTime publishDate;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     public static void createTable() throws SQLException {
         String tableSQL = "CREATE TABLE APP.BOOKS(ID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),TITLE VARCHAR(511) NOT NULL,SUBJECT VARCHAR(255) NOT NULL,AUTHOR VARCHAR(255) NOT NULL,ISBN VARCHAR(13) NOT NULL,PUBLISH_DATE DATE NOT NULL,STATUS INTEGER NOT NULL,CREATED_AT TIMESTAMP NOT NULL)";
@@ -56,7 +56,7 @@ public class Book extends Model {
         return createdAt.format(formatter);
     }
 
-    public String getPublishDate() throws  NullPointerException {
+    public String getPublishDate() {
         return publishDate.format(formatter);
     }
 

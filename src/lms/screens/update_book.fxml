@@ -60,9 +60,9 @@
                 <ComboBox fx:id="status" layoutX="88.0" layoutY="286.0" prefWidth="150.0" promptText="Available">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Available" />
-                            <String fx:value="Borrowed" />
-                            <String fx:value="Reserved" />
+                            <String fx:id = "Available" fx:value="Available" />
+                            <String fx:id="Borrowed" fx:value="Borrowed" />
+                            <String fx:id="Reserved" fx:value="Reserved" />
                         </FXCollections>
                     </items>
                 </ComboBox>
