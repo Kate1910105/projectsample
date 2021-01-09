@@ -32,7 +32,7 @@ public class DeleteStudentPanelWindow {
     @FXML
     public void back(ActionEvent event) throws Exception {
         Scene scene;
-        scene = AdminPanelWindow.getScene();
+        scene = ListStudentPanelWindow.getScene();
         Main.window.setScene(scene);
     }
 }

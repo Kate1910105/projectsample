@@ -46,7 +46,7 @@ public class ListStudentPanelWindow {
     @FXML
     public void update(ActionEvent actionEvent) throws Exception {
         Scene scene;
-        scene = ListStudentPanelWindow.getScene();
+        scene = UpdateStudentPanelWindow.getScene();
         Main.window.setScene(scene);
     }
 }

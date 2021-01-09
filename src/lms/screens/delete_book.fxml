@@ -22,14 +22,15 @@
             </children></AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="116.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="Add Book" textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="80.0" lineSpacing="1.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="Add Book" textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
-                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="208.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="List  " textAlignment="CENTER" wrapText="true">
+                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="145.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="85.0" text="List  " textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
+            <Button layoutX="42.0" layoutY="270.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" text="Return" />
             </children></AnchorPane>
     </items>
 </SplitPane>
