@@ -25,9 +25,6 @@ public class CreateBookPanelWindow {
     public DatePicker created;
     public DatePicker publish;
     public ComboBox status;
-    public String available;
-    public String borrowed;
-    public String reserved;
 
     @FXML
     private void initialize() {
@@ -68,9 +65,17 @@ public class CreateBookPanelWindow {
 
         LocalDate datePublish = publish.getValue();
         book.publishDate = datePublish.atStartOfDay();
-
-
-        book.status = BookStatus.Reserved;
+        if (status.getValue().equals("Available")) {
+            book.status = BookStatus.Available;
+        }
+        else if(status.getValue().equals("Borrowed")) {
+            book.status = BookStatus.Borrowed;
+        }
+        else if(status.getValue().equals("Reserved")) {
+            book.status = BookStatus.Reserved;
+        }
+        else book.status = BookStatus.Available;
+        System.out.print(book.status);
         book.create();
 
         Scene scene;
