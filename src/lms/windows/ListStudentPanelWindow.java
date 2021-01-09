@@ -17,7 +17,10 @@ import lms.types.Role;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -57,11 +60,12 @@ public class ListStudentPanelWindow {
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         tableView.getColumns().add(roleColumn);
 
-        TableColumn<User, DateCell> createdAt = new TableColumn<>("Created At");
+
+        TableColumn<User, String> createdAt = new TableColumn<>("Created At");
         createdAt.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
         tableView.getColumns().add(createdAt);
 
-        TableColumn<User, BooleanConverter> canBorrow = new TableColumn<>("Can Borrow");
+        TableColumn<User, String> canBorrow = new TableColumn<>("Can Borrow");
         canBorrow.setCellValueFactory(new PropertyValueFactory<>("canBorrow"));
         tableView.getColumns().add(canBorrow);
 

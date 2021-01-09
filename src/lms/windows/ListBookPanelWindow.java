@@ -4,21 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import lms.Main;
 import lms.models.Book;
 import lms.models.User;
-import lms.types.Role;
-
-import java.util.ArrayList;
 
 public class ListBookPanelWindow {
     public TableView<Book> tableView;
 
     @FXML
-    private void initialize() {
+    private TableView <Book> tableView;
+
+
+    @FXML
+    private void initialize() throws SQLException  {
         System.out.println("book list panel init");
         ArrayList<Book> books = Book.all();
         ArrayList<User> librarians = new ArrayList<>();
