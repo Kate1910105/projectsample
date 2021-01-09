@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lms.Main;
@@ -12,6 +13,7 @@ import lms.models.User;
 
 
 public class LoginWindow {
+    public Button login;
     @FXML
     private TextField username;
 
@@ -25,6 +27,7 @@ public class LoginWindow {
     @FXML
     private void initialize() {
         System.out.println("login init");
+        login.setDefaultButton(true);
     }
 
     public void login(ActionEvent event) throws Exception {
