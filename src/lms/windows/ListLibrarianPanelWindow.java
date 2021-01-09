@@ -78,18 +78,14 @@ public class ListLibrarianPanelWindow {
 //        System.out.println(user.getId());
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Delete");
-        alert.setHeaderText("Are you sure to delete?");
+        alert.setHeaderText("Delete Item: " + selectedItem.getFullName());
+        alert.setContentText("Are you sure?");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             // ... user chose OK
             tableView.getItems().remove(selectedItem);
-//            tableView.delete(selectedItem);
-
-
-
-
-
+            selectedItem.delete();
         } else {
             // ... user chose CANCEL or closed the dialog
             Scene scene;
@@ -107,6 +103,7 @@ public class ListLibrarianPanelWindow {
 
     @FXML
     public void update(ActionEvent actionEvent) throws Exception {
+        User selectedItem = tableView.getSelectionModel().getSelectedItem();
         Scene scene;
         scene = UpdateLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);

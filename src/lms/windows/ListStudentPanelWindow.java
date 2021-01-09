@@ -5,9 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import lms.Main;
@@ -17,6 +15,7 @@ import lms.types.Role;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ListStudentPanelWindow {
 
@@ -24,7 +23,7 @@ public class ListStudentPanelWindow {
         return Main.loadScene("list_student");
     }
     @FXML
-    private TableView tableView;
+    private TableView<User> tableView;
 
     @FXML
     private void initialize() throws SQLException {
@@ -96,10 +95,25 @@ public class ListStudentPanelWindow {
     }
     @FXML
     public void delete(ActionEvent actionEvent) throws Exception {
-        Scene scene;
-        scene = DeleteStudentPanelWindow.getScene();
-        Main.window.setScene(scene);
+        User selectedItem = tableView.getSelectionModel().getSelectedItem();
+//        System.out.println(user.getId());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Delete");
+        alert.setHeaderText("Delete Item: " + selectedItem.getFullName());
+        alert.setContentText("Are you sure?");
 
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            // ... user chose OK
+            tableView.getItems().remove(selectedItem);
+            selectedItem.delete();
+        } else {
+            // ... user chose CANCEL or closed the dialog
+            Scene scene;
+            scene = ListStudentPanelWindow.getScene();
+            Main.window.setScene(scene);
+
+        }
     }
     @FXML
     public void update(ActionEvent actionEvent) throws Exception {
