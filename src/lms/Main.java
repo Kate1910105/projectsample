@@ -20,6 +20,8 @@ public class Main extends Application {
 
     public static User currentUser;
 
+    public static User editingUser;
+
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;

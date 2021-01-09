@@ -75,23 +75,26 @@ public class ListLibrarianPanelWindow {
     @FXML
     public void delete(ActionEvent actionEvent) throws Exception {
         User selectedItem = tableView.getSelectionModel().getSelectedItem();
-//        System.out.println(user.getId());
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Delete");
-        alert.setHeaderText("Delete Item: " + selectedItem.getFullName());
-        alert.setContentText("Are you sure?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            // ... user chose OK
-            tableView.getItems().remove(selectedItem);
-            selectedItem.delete();
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select User");
+            alert.showAndWait();
         } else {
-            // ... user chose CANCEL or closed the dialog
-            Scene scene;
-            scene = ListLibrarianPanelWindow.getScene();
-            Main.window.setScene(scene);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Delete");
+            alert.setHeaderText("Delete Item: " + selectedItem.getFullName());
+            alert.setContentText("Are you sure?");
 
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                tableView.getItems().remove(selectedItem);
+                selectedItem.delete();
+            } else {
+                Scene scene;
+                scene = ListLibrarianPanelWindow.getScene();
+                Main.window.setScene(scene);
+            }
         }
 
 
@@ -104,9 +107,18 @@ public class ListLibrarianPanelWindow {
     @FXML
     public void update(ActionEvent actionEvent) throws Exception {
         User selectedItem = tableView.getSelectionModel().getSelectedItem();
-        Scene scene;
-        scene = UpdateLibrarianPanelWindow.getScene();
-        Main.window.setScene(scene);
+
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select User");
+            alert.showAndWait();
+        } else {
+            Main.editingUser = selectedItem;
+            Scene scene;
+            scene = UpdateLibrarianPanelWindow.getScene();
+            Main.window.setScene(scene);
+        }
     }
 
     @FXML

@@ -4,10 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import lms.Main;
+import lms.models.User;
 
 public class UpdateLibrarianPanelWindow {
     @FXML
     private void initialize() {
+        User editingUser = Main.editingUser;
+        System.out.println(editingUser.username);
         System.out.println("update librarian panel init");
     }
 
