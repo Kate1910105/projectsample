@@ -46,7 +46,7 @@ public class CreateLibrarianPanelWindow {
     @FXML
     public void addlibrarian(ActionEvent actionEvent) throws Exception {
         Scene scene;
-        scene = CreateStudentPanelWindow.getScene();
+        scene = CreateLibrarianPanelWindow.getScene();
         Main.window.setScene(scene);
     }
     @FXML
