@@ -9,15 +9,21 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <ListView layoutX="60" layoutY="60.0" prefHeight="357.0" prefWidth="485.0" />
-                <Label layoutX="235.0" layoutY="14.0" text="LIST OF STUDENTS">
+                <Label layoutX="235.0" layoutY="18.0" text="LIST OF STUDENTS">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
             <ButtonBar layoutX="234.0" layoutY="336.0" prefHeight="40.0" prefWidth="193.0" />
-            <Button layoutX="412.0" layoutY="376.0" mnemonicParsing="false" onAction="#update" text="Update" />
-          <Button layoutX="481.0" layoutY="376.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <Button layoutX="385.0" layoutY="522.0" mnemonicParsing="false" onAction="#update" text="Update" />
+          <Button layoutX="478.0" layoutY="522.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+            <TableView layoutX="14.0" layoutY="59.0" prefHeight="452.0" prefWidth="545.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="262.0" text="Full Name" />
+                  <TableColumn prefWidth="207.0" text="Status" />
+              </columns>
+            </TableView>
             </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
