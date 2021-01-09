@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.windows.LoginWindow"
-            style="-fx-background-color: #d2f7f2;">
+
+<BorderPane style="-fx-background-color: #d2f7f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.windows.LoginWindow">
 
     <center>
         <VBox alignment="CENTER" maxWidth="300" spacing="12">
             <Label text="Welcome!">
                 <font>
-                    <Font size="24.0"/>
+                    <Font size="24.0" />
                 </font>
             </Label>
 
             <VBox prefWidth="Infinity" spacing="4">
-                <Label text="Username:"/>
-                <TextField fx:id="username" promptText="Your username"/>
+                <Label text="Username:" />
+                <TextField fx:id="username" promptText="Your username" />
             </VBox>
 
             <VBox prefWidth="Infinity" spacing="4">
-                <Label text="Password:"/>
-                <PasswordField fx:id="password" promptText="Your password"/>
+                <Label text="Password:" />
+                <PasswordField fx:id="password" promptText="Your password" />
             </VBox>
 
-            <Button prefWidth="75" prefHeight="30" onAction="#login"
-                    style="-fx-border-radius: 5px, 3px, 2px, 1px; -fx-background-color: white; -fx-border-color: #16c9de; -fx-background-radius: 5px, 3px, 2px, 1px;">
+            <Button fx:id = "login" defaultButton="true" onAction="#login" prefHeight="30" prefWidth="75" style="-fx-border-radius: 5px, 3px, 2px, 1px; -fx-background-color: white; -fx-border-color: #16c9de; -fx-background-radius: 5px, 3px, 2px, 1px;">
                 <font>
-                    <Font size="15.0"/>
+                    <Font size="15.0" />
                 </font>
                 <VBox.margin>
-                    <Insets top="8"/>
+                    <Insets top="8" />
                 </VBox.margin>
                 Login
             </Button>
