@@ -30,7 +30,6 @@
                     </font>
                 </Label>
                 <PasswordField layoutX="88.0" layoutY="213.0" prefHeight="25.0" prefWidth="334.0"/>
-                <CheckBox layoutX="107.0" layoutY="274.0" mnemonicParsing="false"/>
                 <Label layoutX="187.0" layoutY="28.0" text="UPDATE LIBRARIAN">
                     <font>
                         <Font name="System Bold" size="13.0"/>
