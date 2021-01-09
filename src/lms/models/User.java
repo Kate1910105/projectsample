@@ -167,7 +167,8 @@ public class User extends Model {
     public void update() throws SQLException {
         Connection connection = db.getConnection();
         String query = "UPDATE APP.USERS\n" +
-                "SET PASSWORD=?,\n" +
+                "SET USERNAME=?,\n" +
+                "PASSWORD=?,\n" +
                 "FULL_NAME=?,\n" +
                 "\"ROLE\"=?,\n" +
                 "CAN_BORROW=?,\n" +
@@ -175,13 +176,14 @@ public class User extends Model {
                 "CREATED_AT=?\n" +
                 "WHERE ID=?";
         PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, password);
-        statement.setString(2, fullName);
-        statement.setInt(3, roleToRaw(role));
-        statement.setBoolean(4, canBorrow);
-        statement.setBoolean(5, isActive);
-        statement.setTimestamp(6, Timestamp.valueOf(createdAt));
-        statement.setInt(7, id);
+        statement.setString(1, username);
+        statement.setString(2, password);
+        statement.setString(3, fullName);
+        statement.setInt(4, roleToRaw(role));
+        statement.setBoolean(5, canBorrow);
+        statement.setBoolean(6, isActive);
+        statement.setTimestamp(7, Timestamp.valueOf(createdAt));
+        statement.setInt(8, id);
 
         try {
             statement.executeUpdate();
