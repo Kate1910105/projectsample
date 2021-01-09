@@ -52,4 +52,5 @@ public class ListStudentPanelWindow {
         scene = UpdateStudentPanelWindow.getScene();
         Main.window.setScene(scene);
     }
+
 }
