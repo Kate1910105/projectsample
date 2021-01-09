@@ -24,8 +24,9 @@ public class Database {
     private Connection connection;
 
     public void connect() throws SQLException {
+        System.setProperty("derby.language.sequence.preallocator", "1");
         String databasePath = "db";
-        connection = DriverManager.getConnection(String.format("jdbc:derby:%s;create=true;derby.language.sequence.preallocator=1", databasePath));
+        connection = DriverManager.getConnection(String.format("jdbc:derby:%s;create=true", databasePath));
     }
 
     public void close() throws SQLException {

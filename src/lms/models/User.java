@@ -242,5 +242,21 @@ public class User extends Model {
             throw new AuthorizationError("Unknown");
         }
     }
-    //saypal
+    public static void defaultAdmin() throws SQLException {
+        String username = "irda";
+        String password = "password";
+
+        try {
+            User admin = login(username, password);
+        } catch (AuthorizationError error) {
+            User user = new User();
+            user.username = username;
+            user.password = password;
+            user.fullName = "Irda";
+            user.role = Role.Administrator;
+            user.createdAt = LocalDateTime.now();
+            user.isActive = true;
+            user.create();
+        }
+    }
 }
