@@ -2,18 +2,22 @@ package lms.windows;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.converter.BooleanConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.util.converter.BooleanStringConverter;
 import lms.Main;
 import lms.exceptions.authorization.UserNotFound;
 import lms.models.User;
 import lms.types.Role;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -52,6 +56,16 @@ public class ListStudentPanelWindow {
         TableColumn<User, String> roleColumn = new TableColumn<>("Role");
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         tableView.getColumns().add(roleColumn);
+
+        TableColumn<User, DateCell> createdAt = new TableColumn<>("Created At");
+        createdAt.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
+        tableView.getColumns().add(createdAt);
+
+        TableColumn<User, BooleanConverter> canBorrow = new TableColumn<>("Can Borrow");
+        canBorrow.setCellValueFactory(new PropertyValueFactory<>("canBorrow"));
+        tableView.getColumns().add(canBorrow);
+
+
 
         tableView.getItems().addAll(students);
 

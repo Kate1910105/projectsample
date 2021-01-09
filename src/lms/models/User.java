@@ -33,8 +33,16 @@ public class User extends Model {
         return id;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public String getUsername() {
         return username;
+    }
+
+    public Boolean getcanBorrow() {
+        return canBorrow;
     }
 
 
