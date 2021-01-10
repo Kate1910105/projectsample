@@ -3,7 +3,6 @@ package lms.models;
 import lms.exceptions.model.ModelError;
 import lms.exceptions.model.RecordNotFound;
 import lms.types.BookStatus;
-import lms.types.Role;
 
 import java.sql.*;
 import java.time.LocalDateTime;
