@@ -1,6 +1,5 @@
 package lms.models;
 
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -12,7 +11,6 @@ import lms.exceptions.authorization.UserNotFound;
 import lms.exceptions.model.ModelError;
 import lms.exceptions.model.RecordNotFound;
 import lms.types.Role;
-import lms.windows.ListBookPanelWindow;
 import lms.windows.LoginWindow;
 
 import java.sql.*;
