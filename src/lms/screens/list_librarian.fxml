@@ -4,22 +4,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-           minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #d2f7f2;"
-           xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="lms.windows.ListLibrarianPanelWindow">
+<SplitPane dividerPositions="0.7424749163879598" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #d2f7f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lms.windows.ListLibrarianPanelWindow">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
-                <TableView fx:id="tableView" layoutX="60" layoutY="60.0" prefHeight="357.0" prefWidth="485.0"/>
+                <TableView fx:id="tableView" layoutX="60" layoutY="60.0" prefHeight="357.0" prefWidth="485.0" />
                 <Label layoutX="235.0" layoutY="14.0" text="LIST OF LIBRARIANS">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <ButtonBar layoutX="234.0" layoutY="336.0" prefHeight="40.0" prefWidth="193.0"/>
-                <Button layoutX="412.0" layoutY="376.0" mnemonicParsing="false" onAction="#update" text="Update"/>
-                <Button layoutX="481.0" layoutY="376.0" mnemonicParsing="false" onAction="#delete" text="Delete"/>
+                <ButtonBar layoutX="234.0" layoutY="336.0" prefHeight="40.0" prefWidth="193.0" />
+                <Button layoutX="365.0" layoutY="431.0" mnemonicParsing="false" onAction="#update" prefHeight="32.0" prefWidth="80.0" text="Update" />
+                <Button layoutX="465.0" layoutY="431.0" mnemonicParsing="false" onAction="#delete" prefHeight="32.0" prefWidth="80.0" text="Delete" />
             </children>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">

@@ -18,7 +18,7 @@ import java.util.Optional;
 
 public class ListLibrarianPanelWindow {
     @FXML
-    private TableView <User> tableView;
+    private TableView<User> tableView;
 
     @FXML
     private void initialize() throws SQLException {
@@ -47,6 +47,10 @@ public class ListLibrarianPanelWindow {
         TableColumn<User, String> roleColumn = new TableColumn<>("Role");
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         tableView.getColumns().add(roleColumn);
+
+        TableColumn<User, String> createdAtColumn = new TableColumn<>("Created At");
+        createdAtColumn.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
+        tableView.getColumns().add(createdAtColumn);
 
         tableView.getItems().addAll(librarians);
 
@@ -79,16 +83,16 @@ public class ListLibrarianPanelWindow {
         if (selectedItem == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Nothing selected");
-            alert.setHeaderText("Select User");
+            alert.setHeaderText("Select Librarian");
             alert.showAndWait();
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation Delete");
-            alert.setHeaderText("Delete Item: " + selectedItem.getFullName());
+            alert.setTitle("Delete Confirmation");
+            alert.setHeaderText("Delete Librarian: " + selectedItem.getFullName());
             alert.setContentText("Are you sure?");
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get()==ButtonType.OK) {
+            if (result.isPresent() && result.get() == ButtonType.OK) {
                 tableView.getItems().remove(selectedItem);
                 selectedItem.delete();
             } else {
@@ -97,12 +101,6 @@ public class ListLibrarianPanelWindow {
                 Main.window.setScene(scene);
             }
         }
-
-
-//        Scene scene;
-//        scene = DeleteLibrarianPanelWindow.getScene();
-//        Main.window.setScene(scene);
-
     }
 
     @FXML
@@ -112,7 +110,7 @@ public class ListLibrarianPanelWindow {
         if (selectedItem == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Nothing selected");
-            alert.setHeaderText("Select User");
+            alert.setHeaderText("Select Librarian");
             alert.showAndWait();
         } else {
             Main.editingUser = selectedItem;

@@ -7,6 +7,7 @@ import lms.types.Role;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Book extends Model {
@@ -16,14 +17,47 @@ public class Book extends Model {
     public String subject;
     public String author;
     public BookStatus status;
-    public LocalDateTime publishDate;
     public LocalDateTime createdAt;
+    public LocalDateTime publishDate;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     public static void createTable() throws SQLException {
         String tableSQL = "CREATE TABLE APP.BOOKS(ID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),TITLE VARCHAR(511) NOT NULL,SUBJECT VARCHAR(255) NOT NULL,AUTHOR VARCHAR(255) NOT NULL,ISBN VARCHAR(13) NOT NULL,PUBLISH_DATE DATE NOT NULL,STATUS INTEGER NOT NULL,CREATED_AT TIMESTAMP NOT NULL)";
 
         createTableRaw(tableSQL);
         System.out.println("APP.BOOKS table is created");
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public String getCreatedAt() {
+        return createdAt.format(formatter);
+    }
+
+    public String getPublishDate() {
+        return publishDate.format(formatter);
     }
 
     public void create() throws SQLException {

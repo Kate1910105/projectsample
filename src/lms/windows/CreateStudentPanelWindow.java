@@ -42,6 +42,7 @@ public class CreateStudentPanelWindow {
         user.role = Role.Student;
         user.createdAt = LocalDateTime.now();
         user.isActive = true;
+        user.canBorrow = canBorrow.isSelected();
         user.create();
 
         Scene scene;

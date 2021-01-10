@@ -114,30 +114,44 @@ public class ListStudentPanelWindow {
     @FXML
     public void delete(ActionEvent actionEvent) throws Exception {
         User selectedItem = tableView.getSelectionModel().getSelectedItem();
-//        System.out.println(user.getId());
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Delete");
-        alert.setHeaderText("Delete Item: " + selectedItem.getFullName());
-        alert.setContentText("Are you sure?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            // ... user chose OK
-            tableView.getItems().remove(selectedItem);
-            selectedItem.delete();
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select Student");
+            alert.showAndWait();
         } else {
-            // ... user chose CANCEL or closed the dialog
-            Scene scene;
-            scene = ListStudentPanelWindow.getScene();
-            Main.window.setScene(scene);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Confirmation");
+            alert.setHeaderText("Delete Student: " + selectedItem.getFullName());
+            alert.setContentText("Are you sure?");
 
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get()==ButtonType.OK) {
+                tableView.getItems().remove(selectedItem);
+                selectedItem.delete();
+            } else {
+                Scene scene;
+                scene = ListStudentPanelWindow.getScene();
+                Main.window.setScene(scene);
+            }
         }
     }
+
     @FXML
     public void update(ActionEvent actionEvent) throws Exception {
-        Scene scene;
-        scene = UpdateStudentPanelWindow.getScene();
-        Main.window.setScene(scene);
+        User selectedItem = tableView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select Student");
+            alert.showAndWait();
+        } else {
+            Main.editingUser = selectedItem;
+            Scene scene;
+            scene = UpdateStudentPanelWindow.getScene();
+            Main.window.setScene(scene);
+        }
     }
 
 }

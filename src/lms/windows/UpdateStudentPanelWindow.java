@@ -7,9 +7,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lms.Main;
+import lms.models.User;
+import lms.types.Role;
+
+import java.time.LocalDateTime;
 
 public class UpdateStudentPanelWindow {
-
+    @FXML
+    private CheckBox canBorrow;
     @FXML
     private TextField username;
     @FXML
@@ -19,6 +24,11 @@ public class UpdateStudentPanelWindow {
 
     @FXML
     private void initialize() {
+        User editingUser = Main.editingUser;
+        username.setText(editingUser.fullName);
+        fullName.setText(editingUser.fullName);
+        password.setText(editingUser.password);
+        canBorrow.setSelected(editingUser.canBorrow);
         System.out.println("update student panel init");
     }
 
@@ -28,6 +38,16 @@ public class UpdateStudentPanelWindow {
 
     @FXML
     public void confirm(ActionEvent actionEvent) throws Exception {
+        User editingUser = Main.editingUser;
+        editingUser.username = username.getText();
+        editingUser.password = password.getText();
+        editingUser.fullName = fullName.getText();
+        editingUser.role = Role.Student;
+        editingUser.createdAt = LocalDateTime.now();
+        editingUser.isActive = true;
+        editingUser.canBorrow = canBorrow.isSelected();
+        editingUser.update();
+
         Scene scene;
         scene = ListStudentPanelWindow.getScene();
         Main.window.setScene(scene);

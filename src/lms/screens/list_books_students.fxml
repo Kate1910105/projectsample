@@ -13,15 +13,9 @@
                     <Font name="System Bold" size="14.0" />
                 </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="21.0" layoutY="47.0" prefHeight="501.0" prefWidth="543.0">
-                <columns>
-                    <TableColumn prefWidth="107.0" text="Title" />
-                    <TableColumn prefWidth="126.0" text="Author" />
-                    <TableColumn prefWidth="126.0" text="Subject" />
-                    <TableColumn prefWidth="105.0" text="ISBN" />
-                    <TableColumn prefWidth="78.0" text="Status" />
-                </columns>
-            </TableView>
+            <TableView fx:id="tableView" layoutX="21.0" layoutY="47.0" prefHeight="459.0" prefWidth="543.0" />
+            <Button text="Borrow" onAction="#borrowBook" alignment="CENTER" contentDisplay="CENTER" layoutX="484.0" layoutY="524.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="80.0"  />
+
         </children>
     </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="410.0">
