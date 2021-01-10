@@ -79,6 +79,8 @@ public class Book extends Model {
                 System.out.printf("book %s already exists\n", title);
             }
         }
+        statement.close();
+        connection.close();
     }
 
     public static Book fetch(int id) throws ModelError, SQLException {

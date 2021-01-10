@@ -3,22 +3,33 @@ package lms.windows;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lms.Main;
 import lms.models.Book;
+import lms.models.User;
 import lms.types.BookStatus;
+import lms.types.Role;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ListBookStudentsPanelWindow {
-    public TableView tableView;
+    public TableView<Book> tableView;
 
     @FXML
     private void initialize() throws SQLException {
         System.out.println("book list student panel init");
+        ArrayList<User> users = User.all();
+        ArrayList<User> students = new ArrayList<>();
+
+        users.forEach((u) -> {
+            if (u.role == Role.Student) {
+                students.add(u);
+            }
+        });
 
         ArrayList<Book> books = Book.all();
 
@@ -82,6 +93,22 @@ public class ListBookStudentsPanelWindow {
     }
 
     public void borrowBook(ActionEvent actionEvent) {
+        Book selectedItem = tableView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nothing selected");
+            alert.setHeaderText("Select Librarian");
+            alert.showAndWait();
+        } else {
+
+            Scene scene;
+
+
+        }
+
+
+
 
     }
 }
