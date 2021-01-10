@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +16,7 @@ import lms.types.Role;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ListBookStudentsPanelWindow {
     public TableView<Book> tableView;
@@ -92,7 +94,7 @@ public class ListBookStudentsPanelWindow {
         Main.window.setScene(scene);
     }
 
-    public void borrowBook(ActionEvent actionEvent) {
+    public void borrowBook(ActionEvent actionEvent) throws Exception {
         Book selectedItem = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedItem == null) {
@@ -101,14 +103,24 @@ public class ListBookStudentsPanelWindow {
             alert.setHeaderText("Select Librarian");
             alert.showAndWait();
         } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Borrow Confirmation");
+            alert.setHeaderText("Borrow This Book: " + selectedItem.getTitle());
+            alert.setContentText("Are you sure?");
 
-            Scene scene;
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
 
 
+            } else {
+                Scene scene;
+                scene = ListBookStudentsPanelWindow.getScene();
+                Main.window.setScene(scene);
+            }
         }
 
-
-
-
     }
+
+
 }
+
