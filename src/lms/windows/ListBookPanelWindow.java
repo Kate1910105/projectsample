@@ -9,38 +9,24 @@ import lms.Main;
 import lms.models.Book;
 import lms.models.User;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 public class ListBookPanelWindow {
-    public TableView<Book> tableView;
-
-    @FXML
-    private TableView <Book> tableView;
 
 
     @FXML
-    private void initialize() throws SQLException  {
+    private TableView tableView;
+
+
+    @FXML
+    private void initialize() throws SQLException {
         System.out.println("book list panel init");
         ArrayList<Book> books = Book.all();
-        ArrayList<User> librarians = new ArrayList<>();
 
 
 
-        TableColumn<User, String> idColumn = new TableColumn<>("ID");
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableView.getColumns().add(idColumn);
 
-        TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
-        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-        tableView.getColumns().add(usernameColumn);
-
-        TableColumn<User, String> fullNameColumn = new TableColumn<>("Full Name");
-        fullNameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
-        tableView.getColumns().add(fullNameColumn);
-
-        TableColumn<User, String> roleColumn = new TableColumn<>("Role");
-        roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-        tableView.getColumns().add(roleColumn);
-
-        tableView.getItems().addAll(librarians);
 
         System.out.println(books);
 
