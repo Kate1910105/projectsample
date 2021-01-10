@@ -3,7 +3,6 @@ package lms.models;
 import lms.exceptions.model.ModelError;
 import lms.exceptions.model.RecordNotFound;
 import lms.types.BookStatus;
-import lms.types.Role;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -79,6 +78,8 @@ public class Book extends Model {
                 System.out.printf("book %s already exists\n", title);
             }
         }
+        statement.close();
+        connection.close();
     }
 
     public static Book fetch(int id) throws ModelError, SQLException {
